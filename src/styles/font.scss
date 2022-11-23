@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'font-num';
+	src: url('../fonts/DIN-Condensed.ttf');
+	font-display: swap;
+}
+
+.font-num {
+	font-family: 'font-num' !important;
+	font-display: optional;
+}
+
+@font-face {
+	font-family: 'font-title';
+	src: url('../fonts/title.ttf');
+	font-display: swap;
+}
+
+.font-title {
+	font-family: 'font-title' !important;
+	font-display: optional;
+	font-style: normal;
+	font-weight: 700;
+}

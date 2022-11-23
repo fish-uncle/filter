@@ -1,0 +1,83 @@
+{
+	"name": "js-screen",
+	"private": true,
+	"version": "1.0.0",
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"commit": "git add . && git cz",
+		"build": "vue-cli-service build"
+	},
+	"dependencies": {
+		"axios": "^0.26.1",
+		"cesium-popup-es6": "^0.28.0",
+		"date-fns": "^2.29.1",
+		"gcoord": "^0.3.2",
+		"heatmap.js": "^2.0.5",
+		"lodash": "^4.17.21",
+		"pinia": "^2.0.17",
+		"stompjs": "^2.3.3",
+		"uuid": "^8.3.2",
+		"vue": "^3.2.25",
+		"vue-router": "^4.0.16"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-decorators": "^7.13.5",
+		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+		"@babel/plugin-proposal-optional-chaining": "^7.12.1",
+		"@babel/plugin-transform-classes": "^7.14.2",
+		"@babel/plugin-transform-runtime": "^7.12.1",
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^16.2.4",
+		"@e-cloud/es-commitlint": "0.0.2",
+		"@prettier/plugin-pug": "^2.1.1",
+		"@types/node": "^18.0.3",
+		"@typescript-eslint/eslint-plugin": "^5.30.5",
+		"@typescript-eslint/parser": "^5.30.5",
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-eslint": "~4.5.0",
+		"@vue/cli-plugin-typescript": "^4.5.8",
+		"@vue/cli-service": "^4.5.19",
+		"@vue/compiler-sfc": "^3.2.25",
+		"@vue/eslint-config-prettier": "^7.0.0",
+		"@vue/eslint-config-typescript": "^10.0.0",
+		"autoprefixer": "^9.8.8",
+		"babel-eslint": "^10.1.0",
+		"babel-plugin-transform-class-properties": "^6.24.1",
+		"copy-webpack-plugin": "^6.4.1",
+		"eslint": "^8.19.0",
+		"eslint-define-config": "^1.5.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-vue": "^8.7.1",
+		"glob": "^7.2.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.5.0",
+		"node-sass": "^4.14.1",
+		"prettier": "^2.7.1",
+		"pug": "^3.0.2",
+		"pug-plain-loader": "^1.1.0",
+		"sass-loader": "^10.0.3",
+		"stylelint": "^13.13.1",
+		"stylelint-config-prettier": "^8.0.2",
+		"stylelint-config-recess-order": "^2.6.0",
+		"stylelint-config-standard": "^20.0.0",
+		"stylelint-scss": "^4.2.0",
+		"typescript": "^4.7.4",
+		"unplugin-auto-import": "^0.8.8"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "@e-cloud/es-commitlint"
+		}
+	},
+	"lint-staged": {
+		"*.{scss,less,vue}": "stylelint --config '.stylelintrc.js' --fix",
+		"*.{vue,ts,js}": "eslint --fix",
+		"*.{js,jsx,ts,tsx,html,css,vue,less,scss}": "prettier  --plugin-search-dir ./node_modules --write"
+	}
+}
