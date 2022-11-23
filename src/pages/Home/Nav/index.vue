@@ -1,12 +1,17 @@
 <template lang="pug">
 .home-nav.pos-f.fn-flex
 	.home-nav-item.fn-flex(
-		v-for="item in navList",
+		v-for="(item, index) in navList",
 		:class="{ active: item.active.indexOf(currentNav) !== -1 }",
 		:key="item.label"
 	)
-		.home-nav-item-title.cursor-pointer.pos-r(@click="changeNav(item)")
+		.home-nav-item-title.cursor-pointer.pos-r.fn-flex(@click="changeNav(item)")
+			.home-nav-item-left(v-if="item.active.indexOf(currentNav) !== -1 && index !== 0", @click.stop="changePrevNav")
 			p.fn-flex.font-title {{ item.label }}
+			.home-nav-item-right(
+				v-if="item.active.indexOf(currentNav) !== -1 && index !== navList.length - 1",
+				@click.stop="changeNextNav"
+			)
 			template(v-if="item.children")
 				.home-nav-item-child-list.pos-a
 					.home-nav-item-child.fn-flex(
@@ -38,10 +43,18 @@ export default defineComponent({
 				commonStore.changeNav(item.label)
 			}
 		}
+		const changePrevNav = (): void => {
+			commonStore.changePrevNav()
+		}
+		const changeNextNav = (): void => {
+			commonStore.changeNextNav()
+		}
 		return {
 			navList,
 			currentNav,
 			changeNav,
+			changePrevNav,
+			changeNextNav,
 		}
 	},
 })
@@ -64,6 +77,28 @@ export default defineComponent({
 }
 .home-nav-item-child {
 	display: none;
+}
+.home-nav-item-title {
+	align-items: center;
+}
+.home-nav-item-left {
+	background-image: url('../../../imgs/nav/horn.png');
+	background-size: 11px 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 11px;
+	height: 20px;
+	transform: rotate(-180deg);
+	margin-right: 10px;
+}
+.home-nav-item-right {
+	background-image: url('../../../imgs/nav/horn.png');
+	background-size: 11px 20px;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 11px;
+	height: 20px;
+	margin-left: 10px;
 }
 .home-nav-item {
 	width: 198px;

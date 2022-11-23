@@ -25,7 +25,7 @@ export default defineStore('Common', {
 		isCustomerServicePage() {
 			return this.currentNav === '客户/服务' || this.currentNav === '工单/缴费'
 		},
-		isWorkOrderPayment(){
+		isWorkOrderPayment() {
 			return this.currentNav === '工单/缴费'
 		},
 		isCustomerService() {
@@ -41,6 +41,36 @@ export default defineStore('Common', {
 	actions: {
 		changeNav(currentNav: string): void {
 			this.currentNav = currentNav
+		},
+		changePrevNav(): void {
+			let currentIndex = 0
+			for (let i = 0; i < this.navList.length; i++) {
+				if (this.navList[i].active.indexOf(this.currentNav) !== -1) {
+					currentIndex = i
+				}
+			}
+			if (currentIndex > 0) {
+				if (this.navList[currentIndex - 1].children) {
+					this.currentNav = this.navList[currentIndex - 1].children[0].label
+				} else {
+					this.currentNav = this.navList[currentIndex - 1].label
+				}
+			}
+		},
+		changeNextNav(): void {
+			let currentIndex = 0
+			for (let i = 0; i < this.navList.length; i++) {
+				if (this.navList[i].active.indexOf(this.currentNav) !== -1) {
+					currentIndex = i
+				}
+			}
+			if (currentIndex < this.navList.length - 1) {
+				if (this.navList[currentIndex + 1].children) {
+					this.currentNav = this.navList[currentIndex + 1].children[0].label
+				} else {
+					this.currentNav = this.navList[currentIndex + 1].label
+				}
+			}
 		},
 	},
 })
