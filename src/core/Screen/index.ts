@@ -7,8 +7,9 @@ import { getQueryString } from '@/utils'
 export default class Screen extends Factory<Screen> {
 	width = 4267
 	height = 1080
-	layoutMode: 'full-width' | 'full-size' | 'full-height' = 'full-size'
-	containerId = 'home-content'
+	layoutMode: 'full-width' | 'full-size' | 'full-height' | 'full-none' = 'full-size'
+	contentId = 'home-content'
+	containerId = 'home-container'
 	mapContainerId = 'map-box'
 	style = ''
 	styleReturn = ''
@@ -24,6 +25,15 @@ export default class Screen extends Factory<Screen> {
 			scale = ''
 		const { clientWidth, clientHeight } = document.body
 		const layoutMode = getQueryString('layoutMode')
+		const contentDom = document.getElementById(this.contentId) as HTMLElement
+		const containerDom = document.getElementById(this.containerId) as HTMLElement
+		const mapDom = document.getElementById(this.mapContainerId) as HTMLElement
+		if (layoutMode === 'full-none') {
+			containerDom.style.width = `${this.width}px`
+			containerDom.style.height = `${this.height}px`
+			containerDom.style.overflow = 'auto'
+			return false
+		}
 		if (layoutMode === 'full-width' || layoutMode === 'full-size' || layoutMode === 'full-height')
 			this.layoutMode = layoutMode
 		switch (this.layoutMode) {
@@ -43,12 +53,10 @@ export default class Screen extends Factory<Screen> {
 		} else {
 			scale = `${actualScaleRatio}`
 		}
-		const containerDom = document.getElementById(this.containerId) as HTMLElement
-		const mapDom = document.getElementById(this.mapContainerId) as HTMLElement
-		containerDom.style.width = this.width + 'px'
-		containerDom.style.height = this.height + 'px'
+		contentDom.style.width = this.width + 'px'
+		contentDom.style.height = this.height + 'px'
 		this.style = `scale(${scale}) translate3d(0, 0, 0)`
-		containerDom.style.transform = this.style
+		contentDom.style.transform = this.style
 		if (this.layoutMode === 'full-size') {
 			this.styleReturn = `scale(${1 / scaleX},${1 / scaleY}) translate3d(0, 0, 0)`
 		} else {
