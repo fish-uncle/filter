@@ -1,7 +1,7 @@
 import GcTitle from '@/components/gc-title/index.vue'
 import GcBox from '@/components/gc-box/index.vue'
 import GcLeftView from '@/components/gc-left-view/index.vue'
-
+import GcTab1 from '@/components/gc-tab-1/index.vue'
 
 import JRadio from '@/components/j-radio/index.vue'
 import JMarkerContainer from '@/components/j-marker-container/index.vue'
@@ -14,8 +14,6 @@ import JEmpty from '@/components/j-empty/index.vue'
 import JLoadMore from '@/components/j-loadmore/index.vue'
 import JSelect from '@/components/j-select/index.vue'
 import JPopup from '@/components/j-popup/index.vue'
-import JTabs1 from '@/components/j-tabs-1/index.vue'
-import JTabs2 from '@/components/j-tabs-2/index.vue'
 import JPie1 from '@/components/j-pie-1/index.vue'
 import JPie2 from '@/components/j-pie-2/index.vue'
 import JMarquee from '@/components/j-marquee/index.vue'
@@ -27,23 +25,21 @@ export default [
 	GcTitle,
 	GcBox,
 	GcLeftView,
-	
-	
+	GcTab1,
+
 	JLine3,
-	JTabs2,
 	JLine4,
 	JLine5,
 	JLine6,
 	JMarquee,
 	JPie2,
 	JPie1,
-	JTabs1,
 	JPopup,
 	JSelect,
 	JEmpty,
 	JLoadMore,
 	JRightView,
-	
+
 	JTopView,
 	JRadio,
 	JMarkerContainer,

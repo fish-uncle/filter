@@ -35,7 +35,7 @@ export default defineComponent({
 	left: 0;
 }
 .home-bg-bottom {
-	background-image: url('../../../imgs/bg/bottom.png');
+	background-image: url('../../imgs/bg/bottom.png');
 	background-size: 4010px 28px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -45,7 +45,7 @@ export default defineComponent({
 	left: 0;
 }
 .home-bg-top {
-	background-image: url('../../../imgs/bg/top.png');
+	background-image: url('../../imgs/bg/top.png');
 	background-size: 4042px 83px;
 	background-repeat: no-repeat;
 	background-position: center;

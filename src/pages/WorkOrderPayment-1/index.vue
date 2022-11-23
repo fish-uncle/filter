@@ -19,11 +19,37 @@ import { useCommonStore } from '@/store'
 import { storeToRefs } from 'pinia'
 
 export default defineComponent({
-	name: 'CustomerService',
+	name: 'WorkOrderPayment1',
 	setup() {
 		const commonStore = useCommonStore()
 		const { isCustomerService } = storeToRefs(commonStore)
 		const state = reactive({
+			errorTabs: [
+				{
+					label: '月',
+					value: 'month',
+				},
+				{
+					label: '年',
+					value: 'year',
+				},
+			],
+			tabList: [
+				{
+					value: 'offline',
+					label: '设备离线',
+				},
+				{
+					value: 'alarm',
+					label: '设备报警',
+				},
+				{
+					value: 'treatment',
+					label: '处理查询',
+				},
+			],
+			curTab: 'alarm',
+			curErrorTab: 'month',
 		})
 		return {
 			...toRefs(state),

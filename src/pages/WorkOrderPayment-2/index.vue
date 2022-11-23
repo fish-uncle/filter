@@ -19,7 +19,7 @@ import { useCommonStore } from '@/store'
 import { storeToRefs } from 'pinia'
 
 export default defineComponent({
-	name: 'WorkOrderPayment-2',
+	name: 'WorkOrderPayment2',
 	setup() {
 		const commonStore = useCommonStore()
 		const { isCustomerService } = storeToRefs(commonStore)

@@ -7,13 +7,15 @@
 	)
 		.home-nav-item-title.cursor-pointer.pos-r.fn-flex(@click="changeNav(item)")
 			.home-nav-item-left(v-if="item.active.indexOf(currentNav) !== -1 && index !== 0", @click.stop="changePrevNav")
-			p.fn-flex.font-title {{ item.label }}
+			p.fn-flex.font-title 
+				i(v-if="item.children")
+				span {{ item.label }}
 			.home-nav-item-right(
 				v-if="item.active.indexOf(currentNav) !== -1 && index !== navList.length - 1",
 				@click.stop="changeNextNav"
 			)
 			template(v-if="item.children")
-				.home-nav-item-child-list.pos-a
+				.home-nav-item-child-list.pos-a(:class="{ active: showMenu[item.label] }")
 					.home-nav-item-child.fn-flex(
 						v-for="child in item.children",
 						@click.stop="changeNav(child)",
@@ -22,34 +24,36 @@
 					) {{ child.label }}
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import { useCommonStore } from '@/store'
 import { storeToRefs } from 'pinia'
 
 export default defineComponent({
 	name: 'HomeNav',
-	props: {
-		label: {
-			type: String,
-		},
-	},
 	setup() {
 		const commonStore = useCommonStore()
 		const { navList, currentNav } = storeToRefs(commonStore)
+		const state = reactive({
+			showMenu: {},
+		})
 		const changeNav = (item): void => {
 			if (item.children) {
-				commonStore.changeNav(item.children[0].label)
+				state.showMenu[item.label] = !state.showMenu[item.label]
 			} else {
+				state.showMenu = {}
 				commonStore.changeNav(item.label)
 			}
 		}
 		const changePrevNav = (): void => {
+			state.showMenu = {}
 			commonStore.changePrevNav()
 		}
 		const changeNextNav = (): void => {
+			state.showMenu = {}
 			commonStore.changeNextNav()
 		}
 		return {
+			...toRefs(state),
 			navList,
 			currentNav,
 			changeNav,
@@ -75,14 +79,11 @@ export default defineComponent({
 		rgba(2, 93, 159, 0) 100%
 	);
 }
-.home-nav-item-child {
-	display: none;
-}
 .home-nav-item-title {
 	align-items: center;
 }
 .home-nav-item-left {
-	background-image: url('../../../imgs/nav/horn.png');
+	background-image: url('../../imgs/nav/horn.png');
 	background-size: 11px 20px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -92,7 +93,7 @@ export default defineComponent({
 	margin-right: 10px;
 }
 .home-nav-item-right {
-	background-image: url('../../../imgs/nav/horn.png');
+	background-image: url('../../imgs/nav/horn.png');
 	background-size: 11px 20px;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -117,6 +118,14 @@ export default defineComponent({
 		align-items: center;
 		justify-content: center;
 	}
+	i {
+		background-image: url('../../imgs/nav/menu.png');
+		background-size: 24px;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 24px;
+		height: 24px;
+	}
 	&:last-child {
 		margin-right: 0;
 	}
@@ -129,17 +138,20 @@ export default defineComponent({
 			border-radius: 4px;
 		}
 	}
-	&:hover {
-		.home-nav-item-child {
-			display: flex;
-		}
-	}
 }
 .home-nav-item-child-list {
 	bottom: calc(100% + 9px);
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%) translateY(100%);
+	opacity: 0;
 	background: transparent;
+	transition: all 0.3s;
+	pointer-events: none;
+	&.active {
+		transform: translateX(-50%) translateY(0);
+		opacity: 1;
+		pointer-events: auto;
+	}
 }
 .home-nav-item-child {
 	background: rgba(0, 57, 109, 0.6);
