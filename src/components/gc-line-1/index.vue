@@ -68,35 +68,32 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.gc-line-1-legend {
-	width: 8px;
-	height: 8px;
-	margin-right: 9px;
-	background: #3be8ff;
-	border-radius: 1px;
-	display: inline-block;
-}
-.gc-line-1-chart {
-	div:nth-child(2) {
-		box-shadow: none !important;
-		border-radius: 2px !important;
-		display: flex !important;
-		align-items: center;
-		justify-content: center;
-		background-color: rgba(255, 255, 255, 0.2) !important;
-		border: none !important;
-		padding: 0 4px !important;
-		font-family: 'font-num' !important;
-		font-size: 12px !important;
-		color: #ffffff !important;
-		span {
-			margin-top: 4px;
-			font-weight: 700;
-			line-height: 14px;
-		}
-		div {
-			display: none;
-		}
+.gc-line-1-tooltip {
+	box-shadow: none !important;
+	border-radius: 2px !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.2) !important;
+	border: none !important;
+	padding: 0 4px !important;
+	font-family: 'font-num' !important;
+	font-size: 12px !important;
+	color: #ffffff !important;
+	i {
+		width: 8px;
+		height: 8px;
+		margin-right: 9px;
+		border-radius: 1px;
+		display: inline-block;
+	}
+	span {
+		margin-top: 4px;
+		font-weight: 700;
+		line-height: 14px;
+	}
+	div {
+		display: none;
 	}
 }
 </style>

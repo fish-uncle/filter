@@ -87,7 +87,6 @@ export default defineComponent({
 		watch(
 			() => props.modelValue,
 			val => {
-				console.log(val)
 				state.currentValue = val
 				init()
 			},

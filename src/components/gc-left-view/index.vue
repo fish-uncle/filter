@@ -1,17 +1,38 @@
 <template lang="pug">
-.gc-left-view.pos-a
+.gc-left-view.pos-a(:class="{ active }")
 	slot
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted, onBeforeUnmount, reactive, toRefs } from 'vue'
 
 export default defineComponent({
 	name: 'GcLeftView',
+	setup() {
+		const state = reactive({
+			active: false,
+		})
+		onMounted(() => {
+			state.active = true
+		})
+		onBeforeUnmount(() => {
+			state.active = false
+		})
+		return {
+			...toRefs(state),
+		}
+	},
 })
 </script>
 <style lang="scss" scoped>
 .gc-left-view {
 	left: 20px;
 	top: 98px;
+	transform: translateX(-50%) translate3d(0, 0, 0);
+	opacity: 0;
+	transition: all 0.3s;
+	&.active {
+		transform: translateX(0) translate3d(0, 0, 0);
+		opacity: 1;
+	}
 }
 </style>

@@ -9,7 +9,6 @@ gc-title(label="业务类型占比")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
-import { leftOneApi } from '@/api/customer-service.api'
 
 export default defineComponent({
 	name: 'RightTwo',
@@ -21,11 +20,8 @@ export default defineComponent({
 			list: [],
 		})
 		const init = async () => {
-			const res = await leftOneApi()
-			state.total = res.total
-			state.total1 = res.total1
-			state.total2 = res.total2
-			state.list = res.list
+			// const res = await leftOneApi()
+			// state.list = res.list
 		}
 		onMounted(async () => {
 			await init()

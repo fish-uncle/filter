@@ -16,8 +16,9 @@ export default (data, props) => {
 		},
 		tooltip: {
 			trigger: 'item',
-			formatter: '<i class="gc-line-1-legend"></i><span>{c}</span>',
+			formatter: `<i style="background-color: ${color1}"></i><span>{c}</span>`,
 			position: 'top',
+			className: 'gc-line-1-tooltip',
 		},
 		xAxis: [
 			{

@@ -32,13 +32,20 @@ export default (data, props) => {
 			},
 		},
 		tooltip: {
-			position: function (point) {
-				return [point[0], '16%']
+			position: 'top',
+			trigger: 'item',
+			className: 'gc-line-3-tooltip',
+			formatter: params => {
+				return `<p class="fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">${
+					seriesData1[params.dataIndex]
+				}</span></p>
+				<p class="fn-flex"><i style="background-color: ${color2}"></i><span style="color: ${color2}">${
+					seriesData2[params.dataIndex]
+				}</span></p>
+				<p class="fn-flex"><i style="background-color: ${color3}"></i><span style="color: ${color3}">${
+					seriesData3[params.dataIndex]
+				}</span></p>`
 			},
-			trigger: 'axis',
-			formatter: `<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">{c0}</span></p>
-				<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color2}"></i><span style="color: ${color2}">{c1}</span></p>
-				<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color3}"></i><span style="color: ${color3}">{c2}</span></p>`,
 			axisPointer: {
 				lineStyle: {
 					type: 'dashed',
@@ -70,7 +77,7 @@ export default (data, props) => {
 				splitLine: {
 					lineStyle: {
 						type: 'dashed',
-						color: 'rgba(255, 255, 255, 0)',
+						color: 'rgba(255, 255, 255, 0.3)',
 					},
 				},
 				axisLabel: {
@@ -88,7 +95,7 @@ export default (data, props) => {
 				splitLine: {
 					lineStyle: {
 						type: 'dashed',
-						color: 'rgba(255, 255, 255, 0.3)',
+						color: 'rgba(255, 255, 255, 0)',
 					},
 				},
 				axisLabel: {
@@ -106,7 +113,7 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[0],
 				type: 'bar',
-				barWidth: 12,
+				barWidth: 8,
 				itemStyle: {
 					normal: {
 						color: color1,
@@ -118,7 +125,7 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[1],
 				type: 'bar',
-				barWidth: 12,
+				barWidth: 8,
 				itemStyle: {
 					normal: {
 						color: color2,

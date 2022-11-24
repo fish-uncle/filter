@@ -78,38 +78,29 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.gc-line-3-legend {
-	display: flex;
-	border-radius: 1px;
-	align-items: center;
-	justify-content: center;
+.gc-line-3-tooltip {
+	box-shadow: none !important;
+	border-radius: 2px !important;
+	display: flex !important;
+	flex-direction: column !important;
+	border: none !important;
+	padding: 2px 2px 2px 4px !important;
+	font-size: 12px !important;
 	background-color: rgba(255, 255, 255, 0.1) !important;
-	padding: 2px 3px;
-	+ .gc-line-3-legend {
-		margin-top: 2px;
-	}
-	i {
-		width: 6px;
-		height: 6px;
-		margin-right: 5px;
-	}
-}
-.gc-line-3-chart {
-	div:nth-child(2) {
-		box-shadow: none !important;
-		border-radius: 2px !important;
-		display: flex !important;
-		flex-direction: column !important;
+	p {
 		align-items: center;
-		justify-content: center;
-		border: none !important;
-		padding: 0 !important;
-		background-color: transparent !important;
-		font-size: 12px !important;
-		span {
-			font-weight: 600;
-			line-height: 14px;
+		i {
+			width: 4px;
+			height: 4px;
+			margin-right: 5px;
 		}
+	}
+	span {
+		font-weight: 600;
+		line-height: 14px;
+	}
+	div {
+		display: none;
 	}
 }
 </style>
