@@ -1,18 +1,18 @@
 <template lang="pug">
-.home-nav.pos-f.fn-flex
+.home-nav.pos-a.fn-flex
 	.home-nav-item.fn-flex(
 		v-for="(item, index) in navList",
 		:class="{ active: item.active.indexOf(currentNav) !== -1 }",
 		:key="item.label"
 	)
 		.home-nav-item-title.cursor-pointer.pos-r.fn-flex(@click="changeNav(item)")
-			.home-nav-item-left(v-if="item.active.indexOf(currentNav) !== -1 && index !== 0", @click.stop="changePrevNav")
+			.home-nav-item-left(v-if="item.active.indexOf(currentNav) !== -1 && index !== 0", @click.stop="changePrev")
 			p.fn-flex.font-title 
 				i(v-if="item.children")
 				span {{ item.label }}
 			.home-nav-item-right(
 				v-if="item.active.indexOf(currentNav) !== -1 && index !== navList.length - 1",
-				@click.stop="changeNextNav"
+				@click.stop="changeNext"
 			)
 			template(v-if="item.children")
 				.home-nav-item-child-list.pos-a(:class="{ active: showMenu[item.label] }")
@@ -44,11 +44,11 @@ export default defineComponent({
 				commonStore.changeNav(item.label)
 			}
 		}
-		const changePrevNav = (): void => {
+		const changePrev = (): void => {
 			state.showMenu = {}
 			commonStore.changePrevNav()
 		}
-		const changeNextNav = (): void => {
+		const changeNext = (): void => {
 			state.showMenu = {}
 			commonStore.changeNextNav()
 		}
@@ -57,8 +57,8 @@ export default defineComponent({
 			navList,
 			currentNav,
 			changeNav,
-			changePrevNav,
-			changeNextNav,
+			changePrev,
+			changeNext,
 		}
 	},
 })

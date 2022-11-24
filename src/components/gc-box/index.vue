@@ -1,5 +1,5 @@
 <template lang="pug">
-.gc-box.fn-flex(:class="`gc-box-${type}`")
+.gc-box.fn-flex(:class="`gc-box-${size}`")
 	.gc-box-content.gc-box-child(v-if="$slots.default")
 		slot
 	.gc-box-left.gc-box-child(v-if="$slots.left")
@@ -8,13 +8,15 @@
 		slot(name="right")
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
+
+type SizeProps = 'normal' | 'mini' | 'small' | 'mini-block' | 'small-block'
 
 export default defineComponent({
 	name: 'GcBox',
 	props: {
-		type: {
-			type: String,
+		size: {
+			type: String as PropType<SizeProps>,
 			default: 'normal',
 		},
 	},

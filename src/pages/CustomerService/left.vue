@@ -7,27 +7,31 @@ gc-left-view
 			left-two
 	gc-box
 		template(v-slot:left)
-			gc-title(label="近12月客户新增")
+			left-three
 		template(v-slot:right)
-			gc-title(label="开户点火渠道分析")
+			left-four
+	gc-box
+		template(v-slot:left)
+			left-five
+		template(v-slot:right)
+			left-six
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import { useCommonStore } from '@/store'
-import { storeToRefs } from 'pinia'
 import LeftOne from './components/left-one.vue'
 import LeftTwo from './components/left-two.vue'
+import LeftThree from './components/left-three.vue'
+import LeftFour from './components/left-four.vue'
+import LeftFive from './components/left-five.vue'
+import LeftSix from './components/left-six.vue'
 
 export default defineComponent({
 	name: 'CustomerServiceLeft',
-	components: { LeftOne,LeftTwo },
+	components: { LeftSix, LeftFive, LeftFour, LeftThree, LeftOne, LeftTwo },
 	setup() {
-		const commonStore = useCommonStore()
-		const { isCustomerService } = storeToRefs(commonStore)
 		const state = reactive({})
 		return {
 			...toRefs(state),
-			isCustomerService,
 		}
 	},
 })

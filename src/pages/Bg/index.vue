@@ -1,5 +1,5 @@
 <template lang="pug">
-.home-bg.pos-f
+.home-bg.pos-a
 	.home-bg-top-shadow.pos-a
 	.home-bg-bottom-shadow.pos-a
 	.home-bg-left-shadow.pos-a
@@ -17,8 +17,8 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home-bg {
-	width: 100%;
-	height: 100%;
+	width: 4267px;
+	height: 1080px;
 	top: 0;
 	left: 0;
 	pointer-events: none;

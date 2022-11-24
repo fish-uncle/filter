@@ -1,7 +1,5 @@
 <template lang="pug">
-gc-title(label="用户组成")
-	gc-tab1(@init="init", @change="init")
-	gc-enlarge
+gc-title(label="业务类型占比")
 .fn-flex(style="margin-top: 18px")
 	.fn-flex.flex-column(style="margin-right: 16px")
 		gc-target(label="用户总数", v-model="total")
@@ -10,11 +8,11 @@ gc-title(label="用户组成")
 	gc-line1(v-model="list", unit="万户")
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, reactive, toRefs, onMounted } from 'vue'
 import { leftOneApi } from '@/api/customer-service.api'
 
 export default defineComponent({
-	name: 'LeftOne',
+	name: 'RightTwo',
 	setup() {
 		const state = reactive({
 			total: 0,
@@ -22,16 +20,18 @@ export default defineComponent({
 			total2: 0,
 			list: [],
 		})
-		const init = async type => {
-			const res = await leftOneApi(type)
+		const init = async () => {
+			const res = await leftOneApi()
 			state.total = res.total
 			state.total1 = res.total1
 			state.total2 = res.total2
 			state.list = res.list
 		}
+		onMounted(async () => {
+			await init()
+		})
 		return {
 			...toRefs(state),
-			init,
 		}
 	},
 })

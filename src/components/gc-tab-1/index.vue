@@ -1,46 +1,59 @@
 <template lang="pug">
-.gc-tab.fn-flex
-	.gc-tab-item.fn-flex.cursor-pointer(
-		v-for="item in list",
+.gc-tab-1.fn-flex
+	.gc-tab-1-item.fn-flex.cursor-pointer(
+		v-for="item in option",
 		:key="item.value",
 		:class="{ active: item.value === currentValue }",
-		@click="handlerClick(item.value)"
+		@click="handlerClick(item)"
 	) {{ item.label }}
 </template>
 <script lang="ts">
-import { defineComponent, toRefs, reactive, onMounted } from 'vue'
+import { defineComponent, toRefs, reactive, onMounted, PropType } from 'vue'
+
+type OptionProps = {
+	value: string | number
+	label: string
+}
 
 export default defineComponent({
 	name: 'GcTab1',
 	emits: ['change', 'init'],
-	// @ts-ignore
+	props: {
+		option: {
+			type: Array as PropType<OptionProps[]>,
+			default() {
+				return [
+					{ label: '居民', value: '居民' },
+					{ label: '非居民', value: '非居民' },
+				]
+			},
+		},
+	},
 	setup(props, { emit }) {
 		const state = reactive({
-			currentValue: '居民',
-			list: [
-				{ label: '居民', value: '居民' },
-				{ label: '非居民', value: '非居民' },
-			],
+			currentValue: props.option[0].value,
+			currentLabel: props.option[0].label,
 		})
-		const handlerClick = (value: string): void => {
-			state.currentValue = value
-			emit('change', value)
+		const handlerClick = (item): void => {
+			state.currentValue = item.value
+			state.currentLabel = item.label
+			emit('change', state.currentValue)
 		}
 		onMounted(() => {
 			emit('init', state.currentValue)
 		})
 		return {
-			handlerClick,
 			...toRefs(state),
+			handlerClick,
 		}
 	},
 })
 </script>
 <style lang="scss" scoped>
-.gc-tab {
-	width: 110px;
+.gc-tab-1 {
+	user-select: none;
 }
-.gc-tab-item {
+.gc-tab-1-item {
 	height: 24px;
 	background: rgba(0, 100, 156, 0.4);
 	border-radius: 4px;
@@ -55,7 +68,7 @@ export default defineComponent({
 		font-weight: 500;
 		background: rgba(59, 232, 255, 0.8);
 	}
-	+ .gc-tab-item {
+	+ .gc-tab-1-item {
 		margin-left: 8px;
 	}
 }

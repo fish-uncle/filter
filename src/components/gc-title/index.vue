@@ -1,10 +1,10 @@
 <template lang="pug">
 .gc-title.fn-flex.flex-column
-	.gc-title-content.fn-flex
+	.gc-title-content.fn-flex.pos-r
 		.gc-title-icon.fn-flex
 			span
 		.gc-title-label.font-title {{ label }}
-		.gc-title-right
+		.gc-title-right.fn-flex
 			slot
 	.gc-title-line.pos-r
 </template>
@@ -21,6 +21,14 @@ export default defineComponent({
 	},
 })
 </script>
+<style lang="scss">
+.gc-tab-1,
+.gc-tab-2 {
+	+ .gc-enlarge {
+		margin-left: 8px;
+	}
+}
+</style>
 <style lang="scss" scoped>
 .gc-title-line {
 	margin-top: 3px;
@@ -45,12 +53,15 @@ export default defineComponent({
 }
 .gc-title-right {
 	margin-left: auto;
+	align-items: center;
 }
 .gc-title-content {
 	align-items: center;
+	z-index: 1;
 }
 .gc-title {
 	width: 100%;
+	user-select: none;
 }
 .gc-title-label {
 	font-weight: 400;

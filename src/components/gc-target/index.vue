@@ -22,6 +22,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .gc-target {
+	user-select: none;
 	+ .gc-target {
 		margin-top: 8px;
 	}

@@ -1,9 +1,8 @@
 <template lang="pug">
-gc-title(label="用户组成")
-	gc-tab1(@init="init", @change="init")
-	gc-enlarge
+gc-title(label="回访分析")
+	gc-tab2(@init="init", @change="init")
 .fn-flex(style="margin-top: 18px")
-	.fn-flex.flex-column(style="margin-right: 16px")
+	.fn-flex.flex-column(style="margin-right:16px;")
 		gc-target(label="用户总数", v-model="total")
 		gc-target(label="居民户", v-model="total1")
 		gc-target(label="非居民户", v-model="total2")
@@ -14,7 +13,7 @@ import { defineComponent, reactive, toRefs } from 'vue'
 import { leftOneApi } from '@/api/customer-service.api'
 
 export default defineComponent({
-	name: 'LeftOne',
+	name: 'RightThree',
 	setup() {
 		const state = reactive({
 			total: 0,
