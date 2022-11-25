@@ -1,33 +1,26 @@
 <template lang="pug">
 gc-title(label="业务类型占比")
-.fn-flex(style="margin-top: 18px")
-	.fn-flex.flex-column(style="margin-right: 16px")
-		gc-target(label="用户总数", v-model="total")
-		gc-target(label="居民户", v-model="total1")
-		gc-target(label="非居民户", v-model="total2")
-	gc-line1(v-model="list", unit="万户")
+	gc-date1(@init="init", @change="init")
+.fn-flex(style="margin-top: 12px")
+	gc-pie2(v-model="list")
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
+import { rightTwoApi } from '@/api/customer-service.api'
 
 export default defineComponent({
 	name: 'RightTwo',
 	setup() {
 		const state = reactive({
-			total: 0,
-			total1: 0,
-			total2: 0,
 			list: [],
 		})
-		const init = async () => {
-			// const res = await leftOneApi()
-			// state.list = res.list
+		const init = async type => {
+			const res = await rightTwoApi(type)
+			state.list = res.list
 		}
-		onMounted(async () => {
-			await init()
-		})
 		return {
 			...toRefs(state),
+			init,
 		}
 	},
 })

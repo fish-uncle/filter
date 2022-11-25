@@ -133,6 +133,38 @@ export const leftThreeApi = (type): Promise<any> => {
 	})
 }
 
+// 开户点火渠道分析
+// todo
+export const leftFourApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '线上网厅',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '乡镇六合一',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '线下营业厅',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '浙里办',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+			],
+		})
+	})
+}
+
 // 年度工商户行业分布
 // todo
 export const leftFiveApi = (): Promise<any> => {
@@ -263,9 +295,105 @@ export const leftSixApi = (type): Promise<any> => {
 	})
 }
 
+// 线上业务类型占比
+// todo
+export const rightTwoApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '短信查询',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '自助抄表',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '账单查询',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '生活缴费',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+			],
+		})
+	})
+}
+
+// 回访分析
+// todo
+export const rightThreeApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '01月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '02月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '03月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '04月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '05月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '06月',
+				},
+			],
+		})
+	})
+}
+
 // 工单类型
 // todo
-export const rightFiveApi = (): Promise<any> => {
+export const rightFourApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			complete: Math.ceil(Math.random() * 20),
+			inComplete: Math.ceil(Math.random() * 20),
+			overtime: Math.ceil(Math.random() * 20),
+			ratio: Math.ceil(Math.random() * 100),
+			total: Math.ceil(Math.random() * 20),
+		})
+	})
+}
+
+// 工单类型
+// todo
+export const rightFiveApi = (type): Promise<any> => {
+	console.log(type)
 	return new Promise(resolve => {
 		resolve({
 			list: [

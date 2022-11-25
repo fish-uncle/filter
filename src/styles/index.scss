@@ -5,13 +5,13 @@
 .flex-row {
 	flex-direction: row;
 }
-.cursor-pointer{
+.cursor-pointer {
 	cursor: pointer;
 }
 .flex-column {
 	flex-direction: column;
 }
-.text-center{
+.text-center {
 	text-align: center;
 }
 .ellipsis {
@@ -50,8 +50,12 @@
 h1,
 h2,
 h3,
-p {
+h4,
+p,
+ul,
+li {
 	margin: 0;
+	padding: 0;
 }
 html {
 	width: 100%;

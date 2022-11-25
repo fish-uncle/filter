@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="年度工商户行业分布")
-.fn-flex(style="margin-top: 18px")
+.fn-flex(style="margin-top: 10px")
 	gc-pie1(v-model="list", unit="户")
 </template>
 <script lang="ts">

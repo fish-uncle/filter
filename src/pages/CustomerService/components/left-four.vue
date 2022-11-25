@@ -2,11 +2,11 @@
 gc-title(label="开户点火渠道分析")
 	gc-date1(@init="init", @change="init")
 .fn-flex(style="margin-top: 18px")
-	gc-line1(v-model="list", unit="万户")
+	gc-pie3(v-model="list")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import { leftOneApi } from '@/api/customer-service.api'
+import { leftFourApi } from "@/api/customer-service.api";
 
 export default defineComponent({
 	name: 'LeftFour',
@@ -15,7 +15,7 @@ export default defineComponent({
 			list: [],
 		})
 		const init = async type => {
-			const res = await leftOneApi(type)
+			const res = await leftFourApi(type)
 			state.list = res.list
 		}
 		return {

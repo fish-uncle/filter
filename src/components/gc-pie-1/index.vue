@@ -2,7 +2,7 @@
 .gc-pie-1.pos-r.fn-flex(:class="`gc-pie-1-${size}`")
 	.gc-pie-1-chart(ref="chartDom")
 	.gc-pie-1-value.font-num.pos-a
-		span.fn-flex {{ currentLabel }}
+		span.fn-flex {{ currentRatio }}
 	.gc-pie-1-unit.fn-flex.flex-column(@mouseover="mouseover", @mouseleave="mouseleave")
 		.gc-pie-1-unit-list(:style="style")
 			.gc-pie-1-unit-item.fn-flex.cursor-pointer(
@@ -46,6 +46,10 @@ export default defineComponent({
 			type: String,
 			default: '户',
 		},
+		showSize: {
+			type: Number,
+			default: 5,
+		},
 		size: {
 			type: String as PropType<SizeProps>,
 			default: 'normal',
@@ -56,17 +60,16 @@ export default defineComponent({
 		const chartDom = ref<null | HTMLElement>(null)
 		const state = reactive({
 			currentValue: props.modelValue,
-			showSize: 5,
 			activeIndex: 0,
 			timer: null as any,
 		})
 		const style = computed(() => {
 			if (state.currentValue) {
-				if (state.currentValue.length <= state.showSize + 1) {
+				if (state.currentValue.length <= props.showSize + 1) {
 					return { transform: 'translateY(0px)' }
 				} else {
-					if (state.activeIndex > state.showSize) {
-						const top = (state.activeIndex - state.showSize) * 28
+					if (state.activeIndex > props.showSize) {
+						const top = (state.activeIndex - props.showSize) * 36
 						return { transform: `translateY(-${top}px)` }
 					} else {
 						return { transform: 'translateY(0px)' }
@@ -75,7 +78,7 @@ export default defineComponent({
 			}
 			return { transform: 'translateY(0px)' }
 		})
-		const currentLabel = computed(() => {
+		const currentRatio = computed(() => {
 			if (state.currentValue) {
 				if (state.currentValue.length) {
 					return `${state.currentValue[state.activeIndex].ratio}%`
@@ -143,7 +146,7 @@ export default defineComponent({
 			chartDom,
 			handleChange,
 			handlerClick,
-			currentLabel,
+			currentRatio,
 			style,
 			mouseover,
 			mouseleave,
@@ -185,7 +188,7 @@ export default defineComponent({
 	}
 }
 .gc-pie-1-unit {
-	height: 232px;
+	height: 218px;
 	flex: 1;
 	overflow: hidden;
 }
