@@ -1,5 +1,5 @@
 <template lang="pug">
-gc-right-view
+gc-view-right
 	gc-box(size="mini-block")
 		right-one
 	gc-box(size="mini")

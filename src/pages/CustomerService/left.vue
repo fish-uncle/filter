@@ -1,5 +1,5 @@
 <template lang="pug">
-gc-left-view
+gc-view-left
 	gc-box
 		template(v-slot:left)
 			left-one

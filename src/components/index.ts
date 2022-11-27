@@ -1,7 +1,9 @@
 import GcTitle from '@/components/gc-title/index.vue'
 import GcBox from '@/components/gc-box/index.vue'
-import GcLeftView from '@/components/gc-left-view/index.vue'
-import GcRightView from '@/components/gc-right-view/index.vue'
+import GcViewLeft from '@/components/gc-view-left/index.vue'
+import GcViewRight from '@/components/gc-view-right/index.vue'
+import GcViewTop from '@/components/gc-view-top/index.vue'
+import GcCenterTitle from '@/components/gc-center-title/index.vue'
 import GcTab1 from '@/components/gc-tab-1/index.vue'
 import GcTab2 from '@/components/gc-tab-2/index.vue'
 import GcDate1 from '@/components/gc-date-1/index.vue'
@@ -18,13 +20,13 @@ import GcEnlarge from '@/components/gc-enlarge/index.vue'
 
 import JMarkerContainer from '@/components/j-marker-container/index.vue'
 
-import JTopView from '@/components/j-top-view/index.vue'
-
 export default [
 	GcTitle,
 	GcBox,
-	GcLeftView,
-	GcRightView,
+	GcViewLeft,
+	GcViewRight,
+	GcViewTop,
+	GcCenterTitle,
 	GcTab1,
 	GcTab2,
 	GcDate1,
@@ -38,7 +40,6 @@ export default [
 	GcPie2,
 	GcPie3,
 	GcEnlarge,
-	
-	JTopView,
+
 	JMarkerContainer,
 ]

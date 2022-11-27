@@ -1,6 +1,6 @@
 <template lang="pug">
 j-top-view
-gc-left-view
+gc-view-left
 	gc-box
 		template(v-slot:left)
 			gc-title(label="用户组成")

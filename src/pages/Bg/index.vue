@@ -59,28 +59,27 @@ export default defineComponent({
 	height: 157px;
 	left: 0;
 	top: 0;
-	background: linear-gradient(-180deg, #00234b 29.5%, rgba(0, 42, 90, 0) 94.7%);
+	background: linear-gradient(180deg, #001833 19.75%, rgba(0, 43, 94, 0) 89.49%);
 }
 .home-bg-bottom-shadow {
 	width: 100%;
 	height: 260px;
 	left: 0;
 	bottom: 0;
-	background: linear-gradient(180deg, #002b5c 22.09%, rgba(0, 43, 92, 0) 100%);
-	transform: rotate(-180deg);
+	background: linear-gradient(0deg, #001833 12.18%, rgba(0, 43, 94, 0) 100%);
 }
 .home-bg-left-shadow {
 	width: 1735px;
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: linear-gradient(90deg, #002b5c 16.48%, rgba(0, 43, 92, 0) 94.93%);
+	background: linear-gradient(270deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 43, 94, 0.8) 24.45%, #001730 100%);
 }
 .home-bg-right-shadow {
 	width: 1772px;
 	height: 100%;
 	right: 0;
 	top: 0;
-	background: linear-gradient(-90deg, #002d61 16.48%, rgba(0, 43, 92, 0) 94.93%);
+	background: linear-gradient(90deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 43, 94, 0.8) 24.45%, #001730 100%);
 }
 </style>

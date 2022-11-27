@@ -36,6 +36,7 @@ export default (data, props) => {
 			trigger: 'item',
 			className: 'gc-line-3-tooltip',
 			formatter: params => {
+				console.log(params)
 				return `<p class="fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">${
 					seriesData1[params.dataIndex]
 				}</span></p>

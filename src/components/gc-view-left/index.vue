@@ -1,12 +1,12 @@
 <template lang="pug">
-.gc-left-view.pos-a(:class="{ active }")
+.gc-view-left.pos-a(:class="{ active }")
 	slot
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeUnmount, reactive, toRefs } from 'vue'
 
 export default defineComponent({
-	name: 'GcLeftView',
+	name: 'GcViewLeft',
 	setup() {
 		const state = reactive({
 			active: false,
@@ -24,12 +24,22 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.gc-left-view {
+.gc-view-left {
 	left: 20px;
-	top: 98px;
+	top: 78px;
 	transform: translateX(-50%) translate3d(0, 0, 0);
 	opacity: 0;
 	transition: all 0.3s;
+	&:before {
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 57, 109, 0.3);
+		box-shadow: 0 0 12px rgba(38, 242, 255, 0.2);
+		backdrop-filter: blur(10px);
+		content: '';
+		position: absolute;
+		z-index: -1;
+	}
 	&.active {
 		transform: translateX(0) translate3d(0, 0, 0);
 		opacity: 1;

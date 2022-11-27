@@ -24,17 +24,12 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .gc-box-child {
-	background: rgba(0, 57, 109, 0.3);
-	backdrop-filter: blur(10px);
 	height: 300px;
 	padding: 14px;
 }
 .gc-box {
 	width: 100%;
 	align-items: center;
-	+ .gc-box {
-		margin-top: 4px;
-	}
 }
 .gc-box-content {
 	width: 100%;
