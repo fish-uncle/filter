@@ -1,6 +1,7 @@
 <template lang="pug">
 gc-title(label="抄表率分析")
 	gc-enlarge
+gc-line6(v-model="list", :unit="['数', '%']")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'

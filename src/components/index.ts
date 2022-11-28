@@ -15,6 +15,7 @@ import GcLine2 from '@/components/gc-line-2/index.vue'
 import GcLine3 from '@/components/gc-line-3/index.vue'
 import GcLine4 from '@/components/gc-line-4/index.vue'
 import GcLine5 from '@/components/gc-line-5/index.vue'
+import GcLine6 from '@/components/gc-line-6/index.vue'
 import GcPie1 from '@/components/gc-pie-1/index.vue'
 import GcPie2 from '@/components/gc-pie-2/index.vue'
 import GcPie3 from '@/components/gc-pie-3/index.vue'
@@ -42,6 +43,7 @@ export default [
 	GcLine3,
 	GcLine4,
 	GcLine5,
+	GcLine6,
 	GcPie1,
 	GcPie2,
 	GcPie3,
