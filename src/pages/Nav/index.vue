@@ -1,5 +1,5 @@
 <template lang="pug">
-.home-nav.pos-a.fn-flex
+.home-nav.pos-a.fn-flex(v-click-outside="hideMenu")
 	.home-nav-item.fn-flex(
 		v-for="(item, index) in navList",
 		:class="{ active: item.active.indexOf(currentNav) !== -1 }",
@@ -27,9 +27,11 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import { useCommonStore } from '@/store'
 import { storeToRefs } from 'pinia'
+import { ClickOutside } from '@/directives'
 
 export default defineComponent({
 	name: 'HomeNav',
+	directives: { ClickOutside },
 	setup() {
 		const commonStore = useCommonStore()
 		const { navList, currentNav } = storeToRefs(commonStore)
@@ -40,16 +42,19 @@ export default defineComponent({
 			if (item.children) {
 				state.showMenu[item.label] = !state.showMenu[item.label]
 			} else {
-				state.showMenu = {}
+				hideMenu()
 				commonStore.changeNav(item.label)
 			}
 		}
-		const changePrev = (): void => {
+		const hideMenu = () => {
 			state.showMenu = {}
+		}
+		const changePrev = (): void => {
+			hideMenu()
 			commonStore.changePrevNav()
 		}
 		const changeNext = (): void => {
-			state.showMenu = {}
+			hideMenu()
 			commonStore.changeNextNav()
 		}
 		return {
@@ -59,6 +64,7 @@ export default defineComponent({
 			changeNav,
 			changePrev,
 			changeNext,
+			hideMenu,
 		}
 	},
 })

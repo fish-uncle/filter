@@ -54,7 +54,6 @@ export default defineComponent({
 		)
 		const init = () => {
 			chartDom.value && !myChart && (myChart = window.echarts.init(chartDom.value))
-			console.log(JSON.stringify(options(state.currentValue, props)))
 			myChart.setOption(options(state.currentValue, props))
 		}
 		onMounted(() => {

@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="服务")
-.fn-flex.right-one(style="margin-top: 14px")
+.right-one.fn-flex(style="margin-top: 14px")
 	.right-one-left
 		.right-one-left-top.fn-flex
 			.right-one-left-top-item.fn-flex.flex-column

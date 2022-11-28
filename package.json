@@ -8,6 +8,7 @@
 		"build": "vue-cli-service build"
 	},
 	"dependencies": {
+		"@vueuse/core": "^9.6.0",
 		"axios": "^0.26.1",
 		"cesium-popup-es6": "^0.28.0",
 		"date-fns": "^2.29.1",

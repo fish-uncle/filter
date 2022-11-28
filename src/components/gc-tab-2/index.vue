@@ -1,5 +1,5 @@
 <template lang="pug">
-.gc-tab-2.fn-flex.pos-r.cursor-pointer(:class="{ active: open }")
+.gc-tab-2.fn-flex.pos-r.cursor-pointer(:class="{ active: open }", v-click-outside="handlerHide")
 	.gc-tab-2-current(@click="handlerOpen") {{ currentLabel }}
 	.gc-tab-2-horn(@click="handlerOpen")
 	.gc-tab-2-item-list.pos-a(:class="{ active: open }")
@@ -12,6 +12,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, toRefs, reactive, onMounted, PropType } from 'vue'
+import { ClickOutside } from '@/directives'
 
 type OptionProps = {
 	value: string | number
@@ -20,6 +21,7 @@ type OptionProps = {
 
 export default defineComponent({
 	name: 'GcTab2',
+	directives: { ClickOutside },
 	emits: ['change', 'init'],
 	props: {
 		option: {
@@ -41,6 +43,9 @@ export default defineComponent({
 		const handlerOpen = () => {
 			state.open = !state.open
 		}
+		const handlerHide = () => {
+			state.open = false
+		}
 		const handlerClick = (item): void => {
 			state.currentValue = item.value
 			state.currentLabel = item.label
@@ -54,6 +59,7 @@ export default defineComponent({
 			...toRefs(state),
 			handlerClick,
 			handlerOpen,
+			handlerHide,
 		}
 	},
 })

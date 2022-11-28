@@ -4,9 +4,9 @@ gc-title(label="用户组成")
 	gc-enlarge
 .fn-flex(style="margin-top: 18px")
 	.fn-flex.flex-column(style="margin-right: 16px")
-		gc-target(label="用户总数", v-model="total")
-		gc-target(label="居民户", v-model="total1")
-		gc-target(label="非居民户", v-model="total2")
+		gc-target-1(label="用户总数", v-model="total")
+		gc-target-1(label="居民户", v-model="total1")
+		gc-target-1(label="非居民户", v-model="total2")
 	gc-line1(v-model="list", unit="万户")
 </template>
 <script lang="ts">

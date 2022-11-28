@@ -29,3 +29,8 @@ export const once = function (el: HTMLElement, event: string, fn: EventListener)
 	}
 	on(el, event, listener)
 }
+
+export const isElement = (e: unknown): e is Element => {
+	if (typeof Element === 'undefined') return false
+	return e instanceof Element
+}

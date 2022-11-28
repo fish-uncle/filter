@@ -1,7 +1,7 @@
 <template lang="pug">
 gc-title(label="业务工单完成情况")
 	gc-date1(@init="init", @change="init")
-.fn-flex.right-four(style="margin-top: 20px")
+.right-four.fn-flex(style="margin-top: 20px")
 	.right-four-left.fn-flex.flex-column
 		i.pos-r
 		h2 本月工单总计

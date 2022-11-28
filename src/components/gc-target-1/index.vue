@@ -1,13 +1,13 @@
 <template lang="pug">
-.gc-target.fn-flex.flex-column
-	.gc-target-label.pos-r.fn-flex {{ label }}
-	.gc-target-value.fn-flex.font-num {{ modelValue }}
+.gc-target-1.fn-flex.flex-column
+	.gc-target-1-label.pos-r.fn-flex(:style="{ width: `${width}px` }") {{ label }}
+	.gc-target-1-value.fn-flex.font-num(:style="{ width: `${width}px` }") {{ modelValue }}
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-	name: 'GcTarget',
+	name: 'GcTarget1',
 	props: {
 		label: {
 			type: String,
@@ -17,18 +17,21 @@ export default defineComponent({
 			type: Number,
 			default: 0,
 		},
+		width: {
+			type: Number,
+			default: 106,
+		},
 	},
 })
 </script>
 <style lang="scss" scoped>
-.gc-target {
+.gc-target-1 {
 	user-select: none;
-	+ .gc-target {
+	+ .gc-target-1 {
 		margin-top: 8px;
 	}
 }
-.gc-target-label {
-	width: 106px;
+.gc-target-1-label {
 	height: 32px;
 	align-items: center;
 	justify-content: center;
@@ -53,8 +56,7 @@ export default defineComponent({
 		right: 0;
 	}
 }
-.gc-target-value {
-	width: 106px;
+.gc-target-1-value {
 	height: 36px;
 	align-items: center;
 	justify-content: center;

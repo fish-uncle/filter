@@ -30,6 +30,7 @@ export default defineComponent({
 	transform: translateX(50%) translate3d(0, 0, 0);
 	opacity: 0;
 	transition: all 0.3s;
+	padding: 12px 12px 24px 12px;
 	&:before {
 		width: 100%;
 		height: 100%;
