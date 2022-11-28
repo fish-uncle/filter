@@ -192,6 +192,130 @@ export const left1SixApi = (): Promise<any> => {
 	})
 }
 
+// 近12月安检入户率
+// todo
+export const leftFiveApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '01月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '02月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '03月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '04月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '05月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '06月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '07月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '08月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '09月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '10月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '11月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '12月',
+				},
+			],
+		})
+	})
+}
+
+// 抄表率分析
+// todo
+export const rightTwoApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '01月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '02月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '03月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '04月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '05月',
+				},
+			],
+		})
+	})
+}
+
 // 缴费方式
 // todo
 export const rightFourApi = (type): Promise<any> => {

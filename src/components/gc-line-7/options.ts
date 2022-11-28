@@ -1,4 +1,6 @@
-const icon = require('@/imgs/gc-line-6/icon.png')
+import { hexToRgba } from '@/utils'
+
+const icon = require('@/imgs/gc-line-7/icon.png')
 
 export default (data, props) => {
 	const xData = data ? data.map(item => item.xValue) : []
@@ -11,7 +13,7 @@ export default (data, props) => {
 	const legend = props.legend.map((item, index) => {
 		if (index == 2) {
 			return {
-				icon: `image://${icon}`,
+				icon: 'rect',
 				name: item.toString(),
 			}
 		}
@@ -29,9 +31,9 @@ export default (data, props) => {
 			bottom: 28,
 		},
 		legend: {
-			itemWidth: 14,
-			itemHeight: 7,
-			itemGap: 16,
+			itemWidth: 11,
+			itemHeight: 5,
+			itemGap: 23,
 			data: legend,
 			textStyle: {
 				fontSize: 14,
@@ -121,10 +123,26 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[0],
 				type: 'bar',
-				barWidth: 9,
+				barWidth: 8,
 				itemStyle: {
 					normal: {
-						color: color1,
+						color: new window.echarts.graphic.LinearGradient(
+							0,
+							0,
+							0,
+							1,
+							[
+								{
+									offset: 0,
+									color: hexToRgba(color1, 1),
+								},
+								{
+									offset: 1,
+									color: hexToRgba(color1, 0),
+								},
+							],
+							false,
+						),
 					},
 				},
 				data: seriesData1,
@@ -133,11 +151,26 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[1],
 				type: 'bar',
-				barWidth: 6,
-				barGap: '-80%',
+				barWidth: 8,
 				itemStyle: {
 					normal: {
-						color: color2,
+						color: new window.echarts.graphic.LinearGradient(
+							0,
+							0,
+							0,
+							1,
+							[
+								{
+									offset: 0,
+									color: hexToRgba(color2, 1),
+								},
+								{
+									offset: 1,
+									color: hexToRgba(color2, 0),
+								},
+							],
+							false,
+						),
 					},
 				},
 				data: seriesData2,
@@ -146,8 +179,8 @@ export default (data, props) => {
 				yAxisIndex: 1,
 				name: props.legend[2],
 				type: 'line',
-				symbol: 'none',
-				smooth: true,
+				symbol: `image://${icon}`,
+				symbolSize: 10,
 				itemStyle: {
 					normal: {
 						color: color3,

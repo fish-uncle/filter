@@ -1,9 +1,9 @@
 <template lang="pug">
 gc-title(label="缴费方式")
 	gc-tab1(@init="init", @change="init", :option="option")
-.fn-flex(style="margin-top:12px")
-gc-target2(label="本月总笔数：" unit="笔" :value="111")
-gc-pie4(v-model="list", unit="台" size="mini")
+.fn-flex(style="margin-top: 12px")
+gc-target2(label="本月总笔数：", unit="笔", :value="111")
+gc-pie4(v-model="list", unit="台", size="mini")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'

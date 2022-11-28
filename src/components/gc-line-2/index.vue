@@ -7,7 +7,6 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import options from './options'
-import { getYear, addYears } from 'date-fns'
 
 export default defineComponent({
 	name: 'GcLine2',
@@ -29,7 +28,7 @@ export default defineComponent({
 		legend: {
 			type: Array,
 			default() {
-				return [getYear(new Date()), getYear(addYears(new Date(), -1)), getYear(addYears(new Date(), -2))]
+				return ['类目一', '类目二', '类目三']
 			},
 		},
 		color: {

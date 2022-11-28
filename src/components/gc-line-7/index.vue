@@ -1,16 +1,16 @@
 <template lang="pug">
-.gc-line-4.pos-r
-	.gc-line-4-unit.fn-flex.pos-a
+.gc-line-7.pos-r
+	.gc-line-7-unit.fn-flex.pos-a
 		.unit-left.pos-a {{ unit[0] }}
 		.unit-right.pos-a {{ unit[1] }}
-	.gc-line-4-chart(ref="chartDom")
+	.gc-line-7-chart(ref="chartDom")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import options from './options'
 
 export default defineComponent({
-	name: 'GcLine4',
+	name: 'GcLine7',
 	props: {
 		right: {
 			type: Number,
@@ -35,7 +35,7 @@ export default defineComponent({
 		color: {
 			type: Array,
 			default() {
-				return ['#3BE8FF', '#00FFCF', '#FCD756']
+				return ['#3C72FD', '#FCD756', '#74FFF2']
 			},
 		},
 		unit: {
@@ -77,7 +77,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.gc-line-4-tooltip {
+.gc-line-7-tooltip {
 	box-shadow: none !important;
 	border-radius: 2px !important;
 	display: flex !important;
@@ -104,15 +104,15 @@ export default defineComponent({
 }
 </style>
 <style lang="scss" scoped>
-.gc-line-4-chart {
+.gc-line-7-chart {
 	height: 220px;
-	width: 361px;
+	width: 1100px;
 }
-.gc-line-4 {
-	height: 246px;
-	width: 361px;
+.gc-line-7 {
+	height: 220px;
+	width: 1100px;
 }
-.gc-line-4-unit {
+.gc-line-7-unit {
 	top: 0;
 	left: 0;
 	align-items: center;

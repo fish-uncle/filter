@@ -2,12 +2,12 @@
 .gc-line-6.pos-r
 	.gc-line-6-unit.fn-flex.pos-a
 		.unit-left.pos-a {{ unit[0] }}
+		.unit-right.pos-a {{ unit[1] }}
 	.gc-line-6-chart(ref="chartDom")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import options from './options'
-import { getYear, addYears } from 'date-fns'
 
 export default defineComponent({
 	name: 'GcLine6',
@@ -29,19 +29,19 @@ export default defineComponent({
 		legend: {
 			type: Array,
 			default() {
-				return [getYear(new Date()), getYear(addYears(new Date(), -1)), getYear(addYears(new Date(), -2))]
+				return ['类目一', '类目二', '类目三']
 			},
 		},
 		color: {
 			type: Array,
 			default() {
-				return ['#34B5F2', '#E5615B', '#3C72FD']
+				return ['#0057A9', '#00DDFF', '#01FDD2']
 			},
 		},
 		unit: {
-			type: String,
+			type: Array,
 			default() {
-				return '%'
+				return ['%', '%']
 			},
 		},
 	},
@@ -106,11 +106,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .gc-line-6-chart {
 	height: 220px;
-	width: 515px;
+	width: 422px;
 }
 .gc-line-6 {
 	height: 220px;
-	width: 515px;
+	width: 422px;
 }
 .gc-line-6-unit {
 	top: 0;
@@ -129,6 +129,17 @@ export default defineComponent({
 		line-height: 16px;
 		color: #c0c1c8;
 		text-align: right;
+		white-space: nowrap;
+	}
+	.unit-right {
+		width: 30px;
+		top: 0;
+		right: 0;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		color: #c0c1c8;
+		text-align: left;
 		white-space: nowrap;
 	}
 }
