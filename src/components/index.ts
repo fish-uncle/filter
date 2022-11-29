@@ -21,10 +21,12 @@ import GcPie1 from '@/components/gc-pie-1/index.vue'
 import GcPie2 from '@/components/gc-pie-2/index.vue'
 import GcPie3 from '@/components/gc-pie-3/index.vue'
 import GcPie4 from '@/components/gc-pie-4/index.vue'
+import GcPie5 from '@/components/gc-pie-5/index.vue'
 import GcEnlarge from '@/components/gc-enlarge/index.vue'
 import GcStep from '@/components/gc-step/index.vue'
+import GcTable from '@/components/gc-table/index.vue'
 
-import JMarkerContainer from '@/components/j-marker-container/index.vue'
+import GcMarkerContainer from '@/components/gc-marker-container/index.vue'
 
 export default [
 	GcTitle,
@@ -50,8 +52,10 @@ export default [
 	GcPie2,
 	GcPie3,
 	GcPie4,
+	GcPie5,
 	GcEnlarge,
 	GcStep,
+	GcTable,
 
-	JMarkerContainer,
+	GcMarkerContainer,
 ]

@@ -11,14 +11,6 @@ export default class MapConfig extends Factory<MapConfig> {
 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxYmIwZmU0Zi0zNjQ4LTRlMWYtOWZiMy04OWQxMGNmNjAyMTEiLCJpZCI6MTAzNTcxLCJpYXQiOjE2NTk1NzYwNjN9.O4pDwGsMMVSiuER3hZrcUrckBW5kyYukNUpqA1eYw2Q'
 
 	setting = {
-		// targetFrameRate: 60, //设置最大频率数
-		// resolutionScale: 1, //清晰度 0-1
-		// maximumRenderTimeChange: Infinity, // 无操作时自动渲染帧率，设为数字会消耗性能，Infinity为无操作不渲染
-		// useBrowserRecommendedResolution: false, // 是否选择浏览器推荐分辨率
-		// maximumScreenSpaceError: 64, //屏幕空间最大误差
-		// terrainShadows: Cesium.ShadowMode.DISABLED, // 地质接收阴影
-		// sceneMode: Cesium.SceneMode.SCENE3D,
-		// requestRenderMode : true, // 开启 requestRenderMode 以减少Cesium渲染一个新帧总的时间，并且降低应用中Cesium的CPU使用率
 		animation: false, // 是否创建动画小器件，左下角仪表
 		baseLayerPicker: false, // 是否显示图层选择器
 		fullscreenButton: false, // 是否显示全屏按钮
@@ -37,7 +29,6 @@ export default class MapConfig extends Factory<MapConfig> {
 		contextOptions: {
 			requestWebgl2: true, // 开启webGL 2.0
 		},
-		// msaaSamples: 4, // 抗锯齿的速率
 	}
 
 	constructor() {

@@ -24,9 +24,17 @@ export default class Map extends Factory<Map> {
 		this.viewer = new window.Cesium.Viewer(this.config.viewerClassName, this.config.setting)
 		this.camera.init(this.viewer)
 		this.viewer.imageryLayers.get(0).show = false // cesium 默认图层不展示
-		// this.viewer.imageryLayers.addImageryProvider(this.imagery.imageryProviderAMap) // 添加图层
-		this.viewer.imageryLayers.addImageryProvider(this.imagery.imageryProviderTianMap1) // 添加图层
-		this.viewer.imageryLayers.addImageryProvider(this.imagery.imageryProviderTianMap2) // 添加图层
+		this.viewer.imageryLayers.addImageryProvider(this.imagery.imageryProviderMapBox) // 添加图层
+		this.performance()
+	}
+
+	init() {
+		this.marker = MapMarker.Instance(this.viewer)
+		this.terrain.init(this.viewer)
+		// this.building.init(this.viewer)
+	}
+
+	performance() {
 		// 性能优化部分
 		this.viewer.scene.sun.show = false // 隐藏太阳
 		this.viewer.scene.moon.show = false // 隐藏月亮
@@ -45,10 +53,5 @@ export default class Map extends Factory<Map> {
 		// @ts-ignore
 		this.viewer.scene.fxaa = true // 抗锯齿
 		this.viewer.scene.postProcessStages.fxaa.enabled = true // 抗锯齿
-	}
-
-	init() {
-		this.marker = MapMarker.Instance(this.viewer)
-		this.terrain.init(this.viewer)
 	}
 }

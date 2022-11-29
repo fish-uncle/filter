@@ -5,10 +5,10 @@ import Factory from '@/core/Base/factory'
  */
 export default class MapCamera extends Factory<MapCamera> {
 	position = {
-		destination: window.Cesium.Cartesian3.fromDegrees(120.6288440811257, 27.766414819635674, 96020.95391869501), // 设置位置
+		destination: window.Cesium.Cartesian3.fromDegrees(120.90401678373897, 30.814169540334195, 162746.71572672753), // 设置位置
 		orientation: {
-			heading: 0.37976619443433357, // 方向
-			pitch: -1.5462864939195886, // 倾斜角度
+			heading: 0.3797699226217297, // 方向
+			pitch: -1.5461017202043945, // 倾斜角度
 			roll: 0,
 		},
 	}
@@ -16,7 +16,7 @@ export default class MapCamera extends Factory<MapCamera> {
 	constructor() {
 		super()
 	}
-	
+
 	// 设置镜头到具体位置及角度
 	init = viewer => {
 		viewer.camera.setView(this.position)

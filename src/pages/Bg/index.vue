@@ -22,7 +22,6 @@ export default defineComponent({
 	top: 0;
 	left: 0;
 	pointer-events: none;
-	background-color: #00234b;
 }
 .home-bg-logo {
 	font-weight: 400;
@@ -59,27 +58,27 @@ export default defineComponent({
 	height: 157px;
 	left: 0;
 	top: 0;
-	background: linear-gradient(180deg, #001833 19.75%, rgba(0, 43, 94, 0) 89.49%);
+	background: linear-gradient(180deg, #000812 19.75%, rgba(0, 43, 94, 0) 89.49%);
 }
 .home-bg-bottom-shadow {
 	width: 100%;
-	height: 260px;
+	height: 156px;
 	left: 0;
 	bottom: 0;
-	background: linear-gradient(0deg, #001833 12.18%, rgba(0, 43, 94, 0) 100%);
+	background: linear-gradient(0, #000812 12.18%, rgba(0, 43, 94, 0) 100%);
 }
 .home-bg-left-shadow {
-	width: 1735px;
+	width: 1227px;
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: linear-gradient(270deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 43, 94, 0.8) 24.45%, #001730 100%);
+	background: linear-gradient(270deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 31, 68, 0.8) 24.45%, #000812 100%);
 }
 .home-bg-right-shadow {
-	width: 1772px;
+	width: 1227px;
 	height: 100%;
 	right: 0;
 	top: 0;
-	background: linear-gradient(90deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 43, 94, 0.8) 24.45%, #001730 100%);
+	background: linear-gradient(90deg, rgba(0, 43, 94, 0) 2.26%, rgba(0, 31, 68, 0.8) 24.45%, #000812 100%);
 }
 </style>

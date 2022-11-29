@@ -29,7 +29,7 @@ export default class MapMarker extends Factory<MapMarker> {
 			{
 				position: cartesian3,
 				html,
-				className: 'j-marker',
+				className: 'gc-marker',
 			},
 			action,
 		)

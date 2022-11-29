@@ -34,12 +34,14 @@ export default defineComponent({
 	&:before {
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 57, 109, 0.3);
+		background: rgba(0, 18, 38, 0.5);
 		box-shadow: 0 0 12px rgba(38, 242, 255, 0.2);
 		backdrop-filter: blur(10px);
 		content: '';
 		position: absolute;
 		z-index: -1;
+		right: 0;
+		top: 0;
 	}
 	&.active {
 		transform: translateX(0) translate3d(0, 0, 0);

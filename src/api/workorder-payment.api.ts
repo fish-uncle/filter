@@ -82,6 +82,53 @@ export const left1TwoApi = (type): Promise<any> => {
 	})
 }
 
+// 异常报警
+// todo
+export const left1FourApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+				{
+					time: '2022.11.18',
+					name: '嘉善商学院',
+					address: '环城南路60..',
+					warnType: '电压异常',
+				},
+			],
+		})
+	})
+}
+
 // 表具使用年限分析
 // todo
 export const left1FiveApi = (type): Promise<any> => {
@@ -192,9 +239,45 @@ export const left1SixApi = (): Promise<any> => {
 	})
 }
 
+// 隐患类型分布
+// todo
+export const left2FourApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '软管上接三通',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '软管上接三通',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '软管上接三通',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '软管上接三通',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '软管上接三通',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+			],
+		})
+	})
+}
+
 // 近12月安检入户率
 // todo
-export const leftFiveApi = (): Promise<any> => {
+export const left2FiveApi = (): Promise<any> => {
 	return new Promise(resolve => {
 		resolve({
 			list: [

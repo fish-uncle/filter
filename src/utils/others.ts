@@ -32,3 +32,18 @@ export const hexToRgba = (hex, opacity) => {
 		')'
 	)
 }
+
+export const connectorToUppercase = (str): string => {
+	if (!str) return ''
+	let arr = str.split('-')
+	arr = arr.map(item => {
+		const a = item.split('')
+		a[0] = a[0].toUpperCase()
+		return a.join('')
+	})
+	return arr.join('')
+}
+
+export function uuid(): string {
+	return Math.random().toString(36).replace('0.', '')
+}

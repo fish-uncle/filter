@@ -1,7 +1,8 @@
 <template lang="pug">
 gc-title(label="用户组成")
 	gc-tab1(@init="init", @change="init")
-	gc-enlarge
+	gc-enlarge(label="用户组成", :width="746", :height="520")
+		enlarge-one
 .fn-flex(style="margin-top: 18px")
 	.fn-flex.flex-column(style="margin-right: 16px")
 		gc-target-1(label="用户总数", v-model="total")
@@ -12,9 +13,13 @@ gc-title(label="用户组成")
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
 import { leftOneApi } from '@/api/customer-service.api'
+import EnlargeOne from '../enlarge/one.vue'
 
 export default defineComponent({
 	name: 'LeftOne',
+	components: {
+		EnlargeOne,
+	},
 	setup() {
 		const state = reactive({
 			total: 0,

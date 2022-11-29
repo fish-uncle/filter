@@ -8,7 +8,7 @@ gc-title(label="大用户分析TOP10")
 		span(style="margin-left: 45px; margin-right: 160px") 用户名
 		span 本月用气(m³)/环比
 		span(style="margin-left: 46px") 年度累计用气(m³)/同比
-	.right-five-item.fn-flex(v-for="(item, index) in list")
+	.right-five-item.fn-flex(v-for="(item, index) in list" :key="index")
 		i.font-num.fn-flex {{ index + 1 }}
 		span.ellipsis(style="width: 208px") {{ item.company }}
 		.right-five-item-box.fn-flex

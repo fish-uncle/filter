@@ -1,7 +1,7 @@
 <template lang="pug">
 #home-container.home-container.fn-flex
 	#home-content.home-content.pos-r
-		//home-map
+		home-map
 		home-bg
 		home-nav
 		customer-service(v-if="isCustomerService")

@@ -4,7 +4,7 @@ gc-title(label="气量异常用户")
 .fn-flex(style="margin-top: 10px")
 gc-target2(label="本月低于前三月平均值50%", unit="")
 .right-six.fn-flex.flex-column
-	.right-six-item.fn-flex(v-for="item in list")
+	.right-six-item.fn-flex(v-for="(item, index) in list", :key="index")
 		i
 		label.ellipsis {{ item.id }}
 		p.ellipsis {{ item.address }}
@@ -87,7 +87,7 @@ export default defineComponent({
 		padding: 4px;
 		align-items: center;
 		justify-content: center;
-		img{
+		img {
 			margin-left: auto;
 		}
 		span {

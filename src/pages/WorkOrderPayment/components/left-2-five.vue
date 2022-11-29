@@ -5,7 +5,7 @@ gc-line7(v-model="list", :unit="['件', '%']", :legend="legend")
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs } from 'vue'
-import { leftFiveApi } from '@/api/workorder-payment.api'
+import { left2FiveApi } from '@/api/workorder-payment.api'
 
 export default defineComponent({
 	name: 'Left2Five',
@@ -15,7 +15,7 @@ export default defineComponent({
 			legend: ['计划数', '入户数', '入户率'],
 		})
 		const init = async () => {
-			const res = await leftFiveApi()
+			const res = await left2FiveApi()
 			state.list = res.list
 		}
 		onMounted(async () => {
