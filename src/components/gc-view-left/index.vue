@@ -42,6 +42,7 @@ export default defineComponent({
 		z-index: -1;
 		left: 0;
 		top: 0;
+		border-radius: 8px;
 	}
 	&.active {
 		transform: translateX(0) translate3d(0, 0, 0);

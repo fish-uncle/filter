@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="缴费方式")
-	gc-tab1(@init="init", @change="init", :option="option")
+	gc-tab1(@init="init", @change="init", :options="options")
 .fn-flex(style="margin-top: 12px")
 gc-target2(label="本月总笔数：", unit="笔", :value="111")
 gc-pie4(v-model="list", unit="台", size="mini")
@@ -14,7 +14,7 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			list: [],
-			option: [
+			options: [
 				{ label: '月对比', value: '月对比' },
 				{ label: '年对比', value: '年对比' },
 			],

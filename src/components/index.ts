@@ -6,6 +6,7 @@ import GcViewTop from '@/components/gc-view-top/index.vue'
 import GcCenterTitle from '@/components/gc-center-title/index.vue'
 import GcTab1 from '@/components/gc-tab-1/index.vue'
 import GcTab2 from '@/components/gc-tab-2/index.vue'
+import GcTab3 from '@/components/gc-tab-3/index.vue'
 import GcDate1 from '@/components/gc-date-1/index.vue'
 import GcDate2 from '@/components/gc-date-2/index.vue'
 import GcTarget1 from '@/components/gc-target-1/index.vue'
@@ -39,6 +40,7 @@ export default [
 	GcCenterTitle,
 	GcTab1,
 	GcTab2,
+	GcTab3,
 	GcDate1,
 	GcDate2,
 	GcTarget1,

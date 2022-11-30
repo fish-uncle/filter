@@ -1,7 +1,7 @@
 <template lang="pug">
 .gc-tab-1.fn-flex
 	.gc-tab-1-item.fn-flex.cursor-pointer(
-		v-for="item in option",
+		v-for="item in options",
 		:key="item.value",
 		:class="{ active: item.value === currentValue }",
 		@click="handlerClick(item)"
@@ -19,20 +19,20 @@ export default defineComponent({
 	name: 'GcTab1',
 	emits: ['change', 'init'],
 	props: {
-		option: {
+		options: {
 			type: Array as PropType<OptionProps[]>,
 			default() {
 				return [
-					{ label: '居民', value: '居民' },
-					{ label: '非居民', value: '非居民' },
+					{ label: '选择一', value: '选择一' },
+					{ label: '选择二', value: '选择二' },
 				]
 			},
 		},
 	},
 	setup(props, { emit }) {
 		const state = reactive({
-			currentValue: props.option[0].value,
-			currentLabel: props.option[0].label,
+			currentValue: props.options[0].value,
+			currentLabel: props.options[0].label,
 		})
 		const handlerClick = (item): void => {
 			state.currentValue = item.value

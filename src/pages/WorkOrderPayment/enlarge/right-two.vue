@@ -1,7 +1,7 @@
 <template lang="pug">
 .enlarge-left-one.fn-flex.flex-column
 	.fn-flex
-		gc-tab1(style="margin-left: auto", :option="option", @init="init", @change="init")
+		gc-tab1(style="margin-left: auto", :options="options", @init="init", @change="init")
 		gc-date2(style="margin-left: 24px", @init="init", @change="init")
 	gc-table
 		thead
@@ -32,7 +32,7 @@ export default defineComponent({
 	name: 'EnlargeRightTwo',
 	setup() {
 		const state = reactive({
-			option: [
+			options: [
 				{ label: '人工', value: '人工' },
 				{ label: '物联网表', value: '物联网表' },
 			],

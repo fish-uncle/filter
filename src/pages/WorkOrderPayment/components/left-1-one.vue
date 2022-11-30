@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="表数量分析")
-	gc-tab1(@init="init", @change="init", :option="option")
+	gc-tab1(@init="init", @change="init", :options="options")
 	gc-enlarge(label="表数量分析", :width="752", :height="594")
 		enlarge-left1-one
 .fn-flex(style="margin-top: 18px")
@@ -17,7 +17,7 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			list: [],
-			option: [
+			options: [
 				{ label: '居民', value: '居民' },
 				{ label: '非居民', value: '非居民' },
 			],

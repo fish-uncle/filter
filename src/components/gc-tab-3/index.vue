@@ -1,9 +1,8 @@
 <template lang="pug">
-.gc-tab-2.fn-flex.pos-r.cursor-pointer(:class="{ active: open }", v-click-outside="handlerHide")
-	.gc-tab-2-current(@click="handlerOpen") {{ currentLabel }}
-	.gc-tab-2-horn(@click="handlerOpen")
-	.gc-tab-2-item-list.pos-a(:class="{ active: open }")
-		.gc-tab-2-item.cursor-pointer.ellipsis(
+.gc-tab-3.fn-flex.pos-r.cursor-pointer
+	.gc-tab-3-label {{ label }}
+	.gc-tab-3-item-list.pos-a(:class="{ active: open }")
+		.gc-tab-3-item.cursor-pointer.ellipsis(
 			v-for="item in option",
 			:key="item.value",
 			:class="{ active: item.value === currentValue }",
@@ -20,10 +19,14 @@ type OptionProps = {
 }
 
 export default defineComponent({
-	name: 'GcTab2',
+	name: 'GcTab3',
 	directives: { ClickOutside },
 	emits: ['change', 'init'],
 	props: {
+		label: {
+			type: String,
+			default: '列表',
+		},
 		option: {
 			type: Array as PropType<OptionProps[]>,
 			default() {
@@ -36,20 +39,12 @@ export default defineComponent({
 	},
 	setup(props, { emit }) {
 		const state = reactive({
-			open: false,
 			currentValue: props.option[0].value,
 			currentLabel: props.option[0].label,
 		})
-		const handlerOpen = () => {
-			state.open = !state.open
-		}
-		const handlerHide = () => {
-			state.open = false
-		}
 		const handlerClick = (item): void => {
 			state.currentValue = item.value
 			state.currentLabel = item.label
-			state.open = false
 			emit('change', state.currentValue)
 		}
 		onMounted(() => {
@@ -58,43 +53,25 @@ export default defineComponent({
 		return {
 			...toRefs(state),
 			handlerClick,
-			handlerOpen,
-			handlerHide,
 		}
 	},
 })
 </script>
 <style lang="scss" scoped>
-.gc-tab-2 {
+.gc-tab-3 {
 	padding: 4px 8px;
 	align-items: center;
 	justify-content: center;
 	background: rgba(0, 100, 156, 0.4);
 	border-radius: 4px;
 	user-select: none;
-	&.active {
-		background: rgba(59, 232, 255, 0.8);
-		.gc-tab-2-current {
-			font-weight: 500;
-			color: #02142d;
-		}
-	}
 }
-.gc-tab-2-current {
+.gc-tab-3-label {
 	font-weight: 400;
 	font-size: 14px;
 	color: #ffffff;
 }
-.gc-tab-2-horn {
-	margin-left: 8px;
-	background-image: url('../../imgs/gc-tab-2/horn.png');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 8px 4px;
-	width: 8px;
-	height: 4px;
-}
-.gc-tab-2-item-list {
+.gc-tab-3-item-list {
 	top: 100%;
 	right: 0;
 	max-width: 100px;
@@ -110,7 +87,7 @@ export default defineComponent({
 		pointer-events: auto;
 	}
 }
-.gc-tab-2-item {
+.gc-tab-3-item {
 	height: 24px;
 	background: rgba(0, 100, 156, 0.4);
 	padding: 4px 8px;

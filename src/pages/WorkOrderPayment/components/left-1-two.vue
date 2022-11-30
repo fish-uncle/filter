@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="表类型趋势")
-	gc-tab1(@init="init", @change="init", :option="option")
+	gc-tab1(@init="init", @change="init", :options="options")
 .fn-flex(style="margin-top: 18px")
 	gc-line5(v-model="list", unit="个", :legend="legend")
 </template>
@@ -13,7 +13,7 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			list: [],
-			option: [
+			options: [
 				{ label: '月度', value: '月度' },
 				{ label: '年度', value: '年度' },
 			],
