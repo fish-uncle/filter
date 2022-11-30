@@ -2,7 +2,7 @@
 gc-title(label="用气性质分析")
 	gc-tab1(@init="init", @change="init")
 	gc-enlarge(label="用气性质分析", :width="746", :height="460")
-		enlarge-two
+		enlarge-left-two
 .fn-flex(style="margin-top: 20px")
 	.fn-flex.flex-column(style="width: 100%; padding: 0 12px")
 		gc-progress(
@@ -17,11 +17,11 @@ gc-title(label="用气性质分析")
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
 import { leftTwoApi } from '@/api/customer-service.api'
-import EnlargeTwo from '../enlarge/two.vue'
+import EnlargeLeftTwo from '../enlarge/left-two.vue'
 
 export default defineComponent({
 	name: 'LeftTwo',
-	components: { EnlargeTwo },
+	components: { EnlargeLeftTwo },
 	setup() {
 		const state = reactive({
 			list: [],

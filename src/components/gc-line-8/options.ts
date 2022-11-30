@@ -1,6 +1,4 @@
-import { hexToRgba } from '@/utils'
-
-const icon = require('@/imgs/gc-line-7/icon.png')
+const icon = require('@/imgs/gc-line-8/icon.png')
 
 export default (data, props) => {
 	const xData = data ? data.map(item => item.xValue) : []
@@ -31,9 +29,9 @@ export default (data, props) => {
 			bottom: 28,
 		},
 		legend: {
-			itemWidth: 11,
-			itemHeight: 5,
-			itemGap: 23,
+			itemWidth: 16,
+			itemHeight: 2,
+			itemGap: 16,
 			data: legend,
 			textStyle: {
 				fontSize: 14,
@@ -44,7 +42,7 @@ export default (data, props) => {
 		tooltip: {
 			position: 'top',
 			trigger: 'item',
-			className: 'gc-line-7-tooltip',
+			className: 'gc-line-8-tooltip',
 			formatter: params => {
 				return `<p class="fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">${
 					seriesData1[params.dataIndex]
@@ -123,26 +121,10 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[0],
 				type: 'bar',
-				barWidth: 8,
+				barWidth: 4,
 				itemStyle: {
 					normal: {
-						color: new window.echarts.graphic.LinearGradient(
-							0,
-							0,
-							0,
-							1,
-							[
-								{
-									offset: 0,
-									color: hexToRgba(color1, 1),
-								},
-								{
-									offset: 1,
-									color: hexToRgba(color1, 0),
-								},
-							],
-							false,
-						),
+						color: color1,
 					},
 				},
 				data: seriesData1,
@@ -151,26 +133,10 @@ export default (data, props) => {
 				yAxisIndex: 0,
 				name: props.legend[1],
 				type: 'bar',
-				barWidth: 8,
+				barWidth: 4,
 				itemStyle: {
 					normal: {
-						color: new window.echarts.graphic.LinearGradient(
-							0,
-							0,
-							0,
-							1,
-							[
-								{
-									offset: 0,
-									color: hexToRgba(color2, 1),
-								},
-								{
-									offset: 1,
-									color: hexToRgba(color2, 0),
-								},
-							],
-							false,
-						),
+						color: color2,
 					},
 				},
 				data: seriesData2,
@@ -180,13 +146,13 @@ export default (data, props) => {
 				name: props.legend[2],
 				type: 'line',
 				symbol: `image://${icon}`,
-				symbolSize: 10,
+				symbolSize: 8,
 				itemStyle: {
 					normal: {
 						color: color3,
 						lineStyle: {
-							width: 1,
-							type: 'dashed',
+							width: 2,
+							type: 'solid',
 						},
 					},
 				},

@@ -7,6 +7,11 @@
 			h2.ellipsis {{ item.label }}
 			p.font-num {{ item.value }}
 			span {{ unit }}
+	.gc-pie-3-value.pos-a
+		.gc-pie-3-value-list
+			.gc-pie-3-value-item.fn-flex(v-for="(item, index) in currentValue", :key="index")
+				span(:style="{borderColor:color[index%color.length]}")
+				h2 {{item.ratio}}%
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref, PropType } from 'vue'
@@ -76,6 +81,38 @@ export default defineComponent({
 	width: 515px;
 	align-items: center;
 	user-select: none;
+}
+.gc-pie-3-value {
+	height: 232px;
+	width: 252px;
+	left: 0;
+	top: 0;
+}
+.gc-pie-3-value-item{
+	align-items: center;
+	margin-left: 4px;
+	+.gc-pie-3-value-item{
+		margin-top: 1px;
+	}
+	span{
+		border-width: 0 0 1px 0;
+		border-style: dashed;
+		width: 40px;
+		height: 0;
+	}
+	h2{
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 16px;
+		color: rgba(255, 255, 255, 0.75);
+		margin-left: 4px;
+	}
+}
+.gc-pie-3-value-list{
+	margin-left: 50%;
+	width: 50%;
+	margin-top: 10%;
+	height: 100%;
 }
 .gc-pie-3-chart {
 	height: 232px;

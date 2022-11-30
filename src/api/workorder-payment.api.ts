@@ -1,3 +1,30 @@
+// 表数量分析
+// todo
+export const left1OneApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '普表',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: 'IC卡表',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+				{
+					value: Math.ceil(Math.random() * 20),
+					label: '智能表',
+					ratio: Math.ceil(Math.random() * 100),
+				},
+			],
+		})
+	})
+}
+
 // 表类型趋势
 // todo
 export const left1TwoApi = (type): Promise<any> => {
@@ -77,6 +104,23 @@ export const left1TwoApi = (type): Promise<any> => {
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '2021.12',
 				},
+			],
+		})
+	})
+}
+
+// 智能表近7日上线率
+// todo
+export const left1ThreeApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			total: Math.ceil(Math.random() * 200000),
+			list: [
+				{ yValue1: Math.ceil(Math.random() * 20), xValue: '2021.01' },
+				{ yValue1: Math.ceil(Math.random() * 20), xValue: '2021.02' },
+				{ yValue1: Math.ceil(Math.random() * 20), xValue: '2021.03' },
+				{ yValue1: Math.ceil(Math.random() * 20), xValue: '2021.04' },
+				{ yValue1: Math.ceil(Math.random() * 20), xValue: '2021.05' },
 			],
 		})
 	})
@@ -361,6 +405,48 @@ export const left2FiveApi = (): Promise<any> => {
 // 抄表率分析
 // todo
 export const rightTwoApi = (): Promise<any> => {
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '01月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '02月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '03月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '04月',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					yValue2: Math.ceil(Math.random() * 20),
+					yValue3: Math.ceil(Math.random() * 100),
+					xValue: '05月',
+				},
+			],
+		})
+	})
+}
+
+// 气费回收率
+// todo
+export const rightThreeApi = (type): Promise<any> => {
+	console.log(type)
 	return new Promise(resolve => {
 		resolve({
 			list: [

@@ -15,19 +15,22 @@
 				.components-example-title 
 					span.cursor-pointer(:class="{ active: dark }", @click="dark = true") 黑暗模式
 					span.cursor-pointer(:class="{ active: !dark }", @click="dark = false") 明亮模式
+				.components-example-title
+					label 宽度设置
+					input(v-model="width")
 			.components-example(:class="{ dark }")
 				.components-example-title
 					label 图例
 				.components-example-content
 					img(:src="componentPicture[currentIndex]")
-			.components-example(:class="{ dark }")
+			.components-example(:class="{ dark }", :style="{ width: `${width}px` }")
 				.components-example-title
 					label 在线实例
-				.components-example-content
+				.components-example-content.fn-flex
 					component(:is="currentComponent", v-bind="params")
 			.components-example(:class="{ dark }")
 				.components-example-title 
-					label 数据
+					label props数据
 				textarea(v-model="currentParams")
 </template>
 <script lang="ts">
@@ -41,6 +44,7 @@ Components.forEach(item => {
 	components[item.name] = item
 })
 export default defineComponent({
+	name: 'Components',
 	components: {
 		...components,
 	},
@@ -48,6 +52,7 @@ export default defineComponent({
 		const state = reactive({
 			componentList: [],
 			componentPicture: [],
+			width: 1120,
 			currentIndex: 0,
 			dark: true,
 			params: {},
@@ -133,9 +138,12 @@ export default defineComponent({
 	&.dark {
 		.components-example-content {
 			background-color: #000;
-			padding: 20px;
 		}
 	}
+}
+.components-example-content {
+	padding: 20px;
+	min-width: 418px;
 }
 .components-item {
 	padding: 10px 0;

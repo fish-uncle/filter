@@ -33,6 +33,7 @@ export default defineComponent({
 	justify-content: center;
 	padding: 0 12px;
 	background-color: rgba(0, 100, 156, 0.6);
+	width: 100%;
 	&:before,
 	&:after {
 		content: '';
@@ -60,11 +61,13 @@ export default defineComponent({
 	font-size: 24px;
 	color: #ffffff;
 	margin-left: auto;
+	margin-top: 6px;
 }
 .gc-target-2-unit {
 	font-weight: 400;
 	font-size: 14px;
 	color: #ffffff;
 	margin-left: 8px;
+	margin-top: 6px;
 }
 </style>

@@ -42,7 +42,7 @@ export default (data, props) => {
 		tooltip: {
 			position: 'top',
 			trigger: 'item',
-			className: 'gc-line-5-tooltip',
+			className: 'gc-line-6-tooltip',
 			formatter: params => {
 				return `<p class="fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">${
 					seriesData1[params.dataIndex]

@@ -11,11 +11,6 @@ export default (data, props) => {
 		labelLine: {
 			normal: { length: 0, length2: 40, lineStyle: { type: 'dashed' } }
 		},
-		label: {
-			formatter: '{c}%',
-			fontSize: 16,
-			color: 'rgba(255, 255, 255, 0.75)'
-		},
 	}
 	return {
 		series: [

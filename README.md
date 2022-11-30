@@ -22,7 +22,7 @@
 
 * ### 数据处理
   * 大体量的 geojson 文件建议
-    * 拆多个 geojson[拆分工具](http://10.200.1.145/framework/web/es-lab/es-cesium-research)
+    * 拆多个 geojson
     * 转 3dtiles 方式进行加载
     * 删除无用字段
     * 下调坐标精度，小数点后面保留7位

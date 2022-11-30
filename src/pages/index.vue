@@ -19,6 +19,7 @@ import { storeToRefs } from 'pinia'
 import { useCommonStore } from '@/store'
 
 export default defineComponent({
+	name: 'Home',
 	components: {
 		HomeMap,
 		HomeNav,
