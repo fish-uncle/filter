@@ -1,40 +1,28 @@
 <template lang="pug">
 .enlarge-left-one.fn-flex.flex-column
 	.fn-flex
-		gc-tab1(style="margin-left: auto", :options="options", @init="init", @change="init")
+		gc-tab1(style="margin-left: auto", :options="meterOptions", @init="init", @change="init")
 		gc-date2(style="margin-left: 24px", @init="init", @change="init")
-	gc-table
-		thead
-			tr
-				td 月份
-				td 人工计划抄表数
-				td 实际抄表数
-				td 抄表率
-				td 到访不遇数量
-				td 补充数量
-				td 重抄数量
-				td 自助抄表数量
-		tbody
-			tr(v-for="(item, index) in list", :key="index")
-				td {{ item.value1 }}
-				td {{ item.value2 }}
-				td {{ item.value3 }}
-				td {{ item.value4 }}
-				td {{ item.value5 }}
-				td {{ item.value6 }}
-				td {{ item.value7 }}
-				td {{ item.value8 }}
+	gc-table(:stripe="true", :columns="columns", v-model="list")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
+import { meterOptions } from '@/config'
 
 export default defineComponent({
 	name: 'EnlargeRightTwo',
 	setup() {
 		const state = reactive({
-			options: [
-				{ label: '人工', value: '人工' },
-				{ label: '物联网表', value: '物联网表' },
+			meterOptions,
+			columns: [
+				{ label: '月份', key: 'value1', width: 76 },
+				{ label: '人工计划抄表数', key: 'value2', width: 124 },
+				{ label: '实际抄表数', key: 'value3', width: 106 },
+				{ label: '抄表率', key: 'value4', width: 106 },
+				{ label: '到访不遇数量', key: 'value5', width: 108 },
+				{ label: '补充数量', key: 'value6', width: 108 },
+				{ label: '重抄数量', key: 'value7', width: 108 },
+				{ label: '自助抄表数量', key: 'value8', width: 118 },
 			],
 			list: [
 				{

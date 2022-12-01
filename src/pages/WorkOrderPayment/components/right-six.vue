@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="气量异常用户")
-	gc-tab1(@init="init", @change="init", :options="options")
+	gc-tab1(@init="init", @change="init", :options="upDownOptions")
 .fn-flex(style="margin-top: 10px")
 gc-target2(label="本月低于前三月平均值50%", unit="")
 .right-six.fn-flex.flex-column
@@ -16,6 +16,7 @@ gc-target2(label="本月低于前三月平均值50%", unit="")
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
 import { rightSixApi } from '@/api/workorder-payment.api'
+import { upDownOptions } from '@/config'
 
 const downIcon = require('@/imgs/workorder-payment/right-six/down.png')
 const upIcon = require('@/imgs/workorder-payment/right-six/up.png')
@@ -27,10 +28,7 @@ export default defineComponent({
 			list: [],
 			downIcon,
 			upIcon,
-			options: [
-				{ label: '增加', value: '增加' },
-				{ label: '减少', value: '减少' },
-			],
+			upDownOptions,
 		})
 		const init = async type => {
 			const res = await rightSixApi(type)

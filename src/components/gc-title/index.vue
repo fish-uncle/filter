@@ -22,6 +22,11 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+.gc-date-1 {
+	+ .gc-enlarge {
+		margin-left: 8px;
+	}
+}
 .gc-tab-1,
 .gc-tab-2 {
 	+ .gc-enlarge {

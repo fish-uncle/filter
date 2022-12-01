@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="用户组成")
-	gc-tab1(@init="init", @change="init")
+	gc-tab1(@init="init", @change="init", :options="residentOptions")
 	gc-enlarge(label="用户组成", :width="746", :height="520")
 		enlarge-left-one
 .fn-flex(style="margin-top: 18px")
@@ -14,6 +14,7 @@ gc-title(label="用户组成")
 import { defineComponent, reactive, toRefs } from 'vue'
 import { leftOneApi } from '@/api/customer-service.api'
 import EnlargeLeftOne from '../enlarge/left-one.vue'
+import { residentOptions } from '@/config'
 
 export default defineComponent({
 	name: 'LeftOne',
@@ -26,6 +27,7 @@ export default defineComponent({
 			total1: 0,
 			total2: 0,
 			list: [],
+			residentOptions,
 		})
 		const init = async type => {
 			const res = await leftOneApi(type)

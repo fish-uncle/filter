@@ -3,8 +3,8 @@
 	.gc-tab-2-current(@click="handlerOpen") {{ currentLabel }}
 	.gc-tab-2-horn(@click="handlerOpen")
 	.gc-tab-2-item-list.pos-a(:class="{ active: open }")
-		.gc-tab-2-item.cursor-pointer.ellipsis(
-			v-for="item in option",
+		.gc-tab-2-item.cursor-pointer.ellipsis.fn-flex(
+			v-for="item in options",
 			:key="item.value",
 			:class="{ active: item.value === currentValue }",
 			@click="handlerClick(item)"
@@ -24,7 +24,7 @@ export default defineComponent({
 	directives: { ClickOutside },
 	emits: ['change', 'init'],
 	props: {
-		option: {
+		options: {
 			type: Array as PropType<OptionProps[]>,
 			default() {
 				return [
@@ -37,8 +37,8 @@ export default defineComponent({
 	setup(props, { emit }) {
 		const state = reactive({
 			open: false,
-			currentValue: props.option[0].value,
-			currentLabel: props.option[0].label,
+			currentValue: props.options[0].value,
+			currentLabel: props.options[0].label,
 		})
 		const handlerOpen = () => {
 			state.open = !state.open
@@ -97,7 +97,7 @@ export default defineComponent({
 .gc-tab-2-item-list {
 	top: 100%;
 	right: 0;
-	max-width: 100px;
+	min-width: 67px;
 	background: rgba(0, 100, 156, 1);
 	pointer-events: none;
 	opacity: 0;
@@ -112,10 +112,10 @@ export default defineComponent({
 }
 .gc-tab-2-item {
 	height: 24px;
+	width: 100%;
 	background: rgba(0, 100, 156, 0.4);
 	padding: 4px 8px;
 	align-items: center;
-	justify-content: center;
 	color: rgba(255, 255, 255, 0.75);
 	font-weight: 400;
 	font-size: 14px;

@@ -78,6 +78,7 @@ export default defineComponent({
 	height: 78px;
 	align-items: center;
 	justify-content: center;
+	user-select: none;
 	background: radial-gradient(
 		100.28% 24656.22% at 100.28% 44.87%,
 		rgba(2, 93, 159, 0) 0%,
@@ -114,7 +115,6 @@ export default defineComponent({
 	font-size: 36px;
 	align-items: center;
 	justify-content: center;
-	color: #e0f7fd;
 	margin-right: 10px;
 	transition: all 0.3s;
 	transform: translate3d(0, 0, 0);
@@ -123,6 +123,7 @@ export default defineComponent({
 		height: 60px;
 		align-items: center;
 		justify-content: center;
+		color: #E0F7FD;
 	}
 	i {
 		background-image: url('../../imgs/nav/menu.png');
@@ -138,9 +139,11 @@ export default defineComponent({
 	&.active {
 		width: 250px;
 		p {
+			color: #FFFFFF;
 			transform: translate3d(0, 0, 0);
 			width: 198px;
-			background: rgba(101, 253, 244, 0.6);
+			border: 2px solid #3BE8FF;
+			background: rgba(0, 18, 38, 0.8);
 			border-radius: 4px;
 		}
 	}

@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="近12月客户新增")
-	gc-tab1(@init="init", @change="init")
+	gc-tab1(@init="init", @change="init", :options="residentOptions")
 	gc-enlarge(label="近12月客户新增", :width="746", :height="460")
 		enlarge-left-three
 .fn-flex(style="margin-top: 18px")
@@ -10,6 +10,7 @@ gc-title(label="近12月客户新增")
 import { defineComponent, reactive, toRefs } from 'vue'
 import { leftThreeApi } from '@/api/customer-service.api'
 import EnlargeLeftThree from '../enlarge/left-three.vue'
+import { residentOptions } from '@/config'
 
 export default defineComponent({
 	name: 'LeftThree',
@@ -17,6 +18,7 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			list: [],
+			residentOptions,
 			legend: ['新增户数', '去年同期', '环比'],
 		})
 		const init = async type => {

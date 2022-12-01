@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="工商户行业用气量同比")
-	gc-tab2(@init="init", @change="init")
+	gc-tab2(@init="init", @change="init", :options="businessOptions")
 .fn-flex(style="margin-top: 18px")
 	gc-line2(v-model="list", unit="万m³", :legend="legend")
 </template>
@@ -8,12 +8,14 @@ gc-title(label="工商户行业用气量同比")
 import { defineComponent, reactive, toRefs } from 'vue'
 import { leftSixApi } from '@/api/customer-service.api'
 import { addYears, getYear } from 'date-fns'
+import { businessOptions } from '@/config'
 
 export default defineComponent({
 	name: 'LeftSix',
 	setup() {
 		const state = reactive({
 			list: [],
+			businessOptions,
 			legend: [getYear(new Date()), getYear(addYears(new Date(), -1)), getYear(addYears(new Date(), -2))],
 		})
 		const init = async type => {

@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="应收组成")
-	gc-tab1(@init="init", @change="init", :options="options")
+	gc-tab1(@init="init", @change="init", :options="countOptions")
 .fn-flex(style="margin-top: 18px")
 	.fn-flex.flex-column(style="margin-right: auto")
 		gc-target1(label="本期应收金额(元)", :width="140")
@@ -10,7 +10,8 @@ gc-title(label="应收组成")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import {rightThreeApi} from '@/api/workorder-payment.api'
+import { rightThreeApi } from '@/api/workorder-payment.api'
+import { countOptions } from '@/config'
 
 export default defineComponent({
 	name: 'RightThree',
@@ -18,14 +19,11 @@ export default defineComponent({
 		const state = reactive({
 			list: [],
 			legend: ['应收', '实收', '气费回收率'],
-			options: [
-				{ label: '本期', value: '本期' },
-				{ label: '累计', value: '累计' },
-			],
+			countOptions,
 		})
-		const init = async (type) => {
-			const res= await rightThreeApi(type)
-			state.list=res.list
+		const init = async type => {
+			const res = await rightThreeApi(type)
+			state.list = res.list
 		}
 		return {
 			...toRefs(state),

@@ -85,7 +85,7 @@ export default defineComponent({
 	border: none !important;
 	padding: 2px 2px 2px 4px !important;
 	font-size: 12px !important;
-	background-color: rgba(255, 255, 255, 0.1) !important;
+	background-color: #02142d !important;
 	p {
 		align-items: center;
 		i {

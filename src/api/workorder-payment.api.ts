@@ -283,6 +283,66 @@ export const left1SixApi = (): Promise<any> => {
 	})
 }
 
+// 安检覆盖率分析
+// todo
+export const left2TwoApi = (type): Promise<any> => {
+	console.log(type)
+	return new Promise(resolve => {
+		resolve({
+			list: [
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.01',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.02',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.03',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.04',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.05',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.06',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.07',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.08',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.09',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.10',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.11',
+				},
+				{
+					yValue1: Math.ceil(Math.random() * 20),
+					xValue: '2021.12',
+				},
+			],
+		})
+	})
+}
+
 // 隐患类型分布
 // todo
 export const left2FourApi = (): Promise<any> => {

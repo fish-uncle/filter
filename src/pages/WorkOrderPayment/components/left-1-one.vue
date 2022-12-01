@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-title(label="表数量分析")
-	gc-tab1(@init="init", @change="init", :options="options")
+	gc-tab1(@init="init", @change="init", :options="residentOptions")
 	gc-enlarge(label="表数量分析", :width="752", :height="594")
 		enlarge-left1-one
 .fn-flex(style="margin-top: 18px")
@@ -10,6 +10,7 @@ gc-title(label="表数量分析")
 import { defineComponent, reactive, toRefs } from 'vue'
 import EnlargeLeft1One from '../enlarge/left-1-one.vue'
 import { left1OneApi } from '@/api/workorder-payment.api'
+import { residentOptions } from '@/config'
 
 export default defineComponent({
 	name: 'Left1One',
@@ -17,10 +18,7 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			list: [],
-			options: [
-				{ label: '居民', value: '居民' },
-				{ label: '非居民', value: '非居民' },
-			],
+			residentOptions,
 		})
 		const init = async type => {
 			const res = await left1OneApi(type)

@@ -34,9 +34,10 @@ export default (data, props) => {
 				return [point[0], '16%']
 			},
 			trigger: 'axis',
-			formatter: `<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">{c0}</span></p>
-				<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color2}"></i><span style="color: ${color2}">{c1}</span></p>
-				<p class="gc-line-2-legend fn-flex"><i style="background-color: ${color3}"></i><span style="color: ${color3}">{c2}</span></p>`,
+			className: 'gc-line-2-tooltip',
+			formatter: `<p class="fn-flex"><i style="background-color: ${color1}"></i><span style="color: ${color1}">{c0}</span></p>
+				<p class="fn-flex"><i style="background-color: ${color2}"></i><span style="color: ${color2}">{c1}</span></p>
+				<p class="fn-flex"><i style="background-color: ${color3}"></i><span style="color: ${color3}">{c2}</span></p>`,
 			axisPointer: {
 				lineStyle: {
 					type: 'dashed',
