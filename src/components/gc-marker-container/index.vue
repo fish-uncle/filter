@@ -6,16 +6,20 @@
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeUnmount, ref, reactive, PropType, toRefs } from 'vue'
 import Screen from '@/core/Screen'
-import { PositionItem } from '../../../typings/map'
 
+interface PositionProps {
+	latitude: number
+	longitude: number
+	height?: number
+}
 export default defineComponent({
 	name: 'GcMarkerContainer',
 	props: {
-		item: {
-			type: Object as PropType<PositionItem>,
+		position: {
+			type: Object as PropType<PositionProps>,
 		},
 	},
-	setup(props: { item: PositionItem }) {
+	setup(props) {
 		const markerRef = ref<null | HTMLElement>(null)
 		const screen: Screen = Screen.Instance()
 		const state = reactive({
@@ -25,13 +29,14 @@ export default defineComponent({
 
 		const init = () => {
 			if (markerRef.value) {
-				state.instance = window.map.marker.load(props.item.position, markerRef.value.innerHTML)
+				state.instance = window.map.marker.load(props.position, markerRef.value.innerHTML)
 			}
 		}
 
 		onMounted(() => {
 			init()
 		})
+		
 		onBeforeUnmount(() => {
 			if (state.instance) {
 				;(state.instance as any).remove()

@@ -1,15 +1,15 @@
 import Factory from '@/core/Base/factory'
 import Stomp from 'stompjs'
 import { v4 as uuidv4 } from 'uuid'
-import { NoticeType } from '../../../typings/map'
-import { useWarningStore } from '@/store'
+
+type WebSocketType = string
 
 export default class Notice extends Factory<Notice> {
-	host = 'ralifeline.china-goldcard.com'
-	port = '15674'
-	username = 'lifeline'
-	password = 'lifelinepw'
-	directExchange = 'lifelineAlarmDirectExchange'
+	host = process.env.NODE_ENV === 'production' ? 'wss://ralifeline.china-goldcard.com/ws' : ''
+	port = process.env.NODE_ENV === 'production' ? '15674' : ''
+	username = process.env.NODE_ENV === 'production' ? 'lifeline' : ''
+	password = process.env.NODE_ENV === 'production' ? 'lifelinepw' : ''
+	directExchange = '/exchange/lifelineAlarmDirectExchange'
 
 	client
 	callback = {}
@@ -23,7 +23,7 @@ export default class Notice extends Factory<Notice> {
 	}
 
 	init() {
-		this.client = Stomp.client(`wss://${this.host}/ws`)
+		this.client = Stomp.client(this.host)
 		const _this = this
 		this.client.connect(
 			this.username,
@@ -34,7 +34,7 @@ export default class Notice extends Factory<Notice> {
 	}
 
 	connectCallback(_this) {
-		this.client.subscribe(`/exchange/${_this.directExchange}`, message => _this.responseCallback(message, _this), {
+		this.client.subscribe(_this.directExchange, message => _this.responseCallback(message, _this), {
 			ack: 'client',
 			durable: true,
 			id: uuidv4(),
@@ -70,19 +70,19 @@ export default class Notice extends Factory<Notice> {
 		}
 	}
 
-	on(type: NoticeType, callback) {
+	on(type: WebSocketType, callback) {
 		if (!this.callback[type]) this.callback[type] = []
 		this.callback[type].push(callback)
 	}
 
-	emit(type: NoticeType, ...arg: any[]) {
+	emit(type: WebSocketType, ...arg: any[]) {
 		if (this.callback.hasOwnProperty(type))
 			this.callback[type].forEach((fn: Function) => {
 				fn(...arg)
 			})
 	}
 
-	off(type: NoticeType, callback: Function) {
+	off(type: WebSocketType, callback: Function) {
 		if (this.callback[type] && this.callback[type] instanceof Array) {
 			const idx = this.callback[type].findIndex((el: Function) => el == callback)
 			if (idx >= 0) {
@@ -92,16 +92,14 @@ export default class Notice extends Factory<Notice> {
 	}
 
 	responseCallback(message, _this) {
-		const data = JSON.parse(message.body)
-		if (data?.pushType == 1) {
-			_this.emit('warn-active', data)
-		}
-		if (data?.pushType == 11) {
-			const warningStore = useWarningStore()
-			if (warningStore.iotDeviceId === data?.iotDeviceId) {
-				_this.emit('warn-relieve', data)
-			}
-		}
+		// const data = JSON.parse(message.body)
+		// todo emit
+		// if (data?.pushType == 1) {
+		// 	_this.emit('warn-active', data)
+		// }
+		// if (data?.pushType == 11) {
+		// 	_this.emit('warn-relieve', data)
+		// }
 		message.ack()
 	}
 }

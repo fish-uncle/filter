@@ -12,7 +12,7 @@ export default class MapTerrain extends Factory<MapTerrain> {
 
 	enableWaterMask = true // 水效果
 
-	depthTestAgainstTerrain = false // 高层遮挡 即视角范围内的山体会遮挡建筑
+	depthTestAgainstTerrain = true // 高层遮挡 即视角范围内的山体会遮挡建筑
 
 	// 地形 cesium 全球3D地形
 	terrainProviderWorldTerrain = window.Cesium.createWorldTerrain({

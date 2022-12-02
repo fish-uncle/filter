@@ -17,7 +17,8 @@ export default class MapBuilding extends Factory<MapBuilding> {
 	}
 
 	init(viewer) {
-		this.loadRuiAnBuildings(viewer)
+		this.loadGlobalBuildings(viewer)
+		// this.loadRuiAnBuildings(viewer)
 	}
 
 	// 添加瑞安3D建筑 通过 geojson 方式加载3D白模建筑

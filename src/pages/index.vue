@@ -8,13 +8,12 @@
 		work-order-payment(v-if="isWorkOrderPayment")
 </template>
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 import HomeMap from './Map/index.vue'
 import HomeNav from './Nav/index.vue'
 import HomeBg from './Bg/index.vue'
 import CustomerService from './CustomerService/index.vue'
 import WorkOrderPayment from './WorkOrderPayment/index.vue'
-import Screen from '@/core/Screen'
 import { storeToRefs } from 'pinia'
 import { useCommonStore } from '@/store'
 
@@ -30,10 +29,6 @@ export default defineComponent({
 	setup() {
 		const commonStore = useCommonStore()
 		const { isCustomerService, isWorkOrderPayment } = storeToRefs(commonStore)
-		onMounted(() => {
-			const screen: Screen = Screen.Instance()
-			screen.init()
-		})
 		return {
 			isCustomerService,
 			isWorkOrderPayment,

@@ -15,7 +15,7 @@ export default class Http extends Factory<Http> {
 	timer: any = null
 	successCode = 0
 	authCode = 401
-	prefix = 'jz-screen-'
+	prefix = 'gc-screen-'
 
 	cacheUrl = {}
 	cacheExpirationTime = 1000 * 60 * 60 * 24

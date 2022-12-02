@@ -20,89 +20,89 @@ self.addEventListener('install', () => {
 	console.log('[Service Worker] Caching all: app shell and content')
 })
 
-self.addEventListener('fetch', (e) => {
-	// mapbox
-	if(e.request.url.indexOf(TIAN_MAP_URL) > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r){
-				return r
-			}else{
-				const response = await fetch(e.request)
-				const cache = await caches.open(MAP_BOX_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-	if(MAP_BOX_HOSTNAME.indexOf(new URL(e.request.url).hostname) > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r){
-				return r
-			}else{
-				const response = await fetch(e.request)
-				const cache = await caches.open(TIAN_MAP_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-	// Cesium online
-	if(CESIUM_ONLINE_HOSTNAME.indexOf(new URL(e.request.url).hostname) > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r) {
-				return r
-			}else{
-				const response = await fetch(e.request)
-				const cache = await caches.open(CESIUM_ONLINE_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-	// Cesium SDK
-	if(e.request.url.indexOf(CESIUM_URL) > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r){
-				return r
-			}else {
-				const response = await fetch(e.request)
-				const cache = await caches.open(CESIUM_SDK_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-	// 3dtiles
-	if(e.request.url.indexOf(TILES_URL) > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r){
-				return r
-			}else{
-				const response = await fetch(e.request)
-				const cache = await caches.open(TILES_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-	// model
-	if(e.request.url.indexOf('warner.glb') > -1 ||
-		e.request.url.indexOf('geojson') > -1){
-		e.respondWith((async () => {
-			const r = await caches.match(e.request)
-			if (r){
-				return r
-			}else{
-				const response = await fetch(e.request)
-				const cache = await caches.open(MODEL_CACHE)
-				cache.put(e.request, response.clone())
-				return response
-			}
-		})())
-	}
-})
+// self.addEventListener('fetch', (e) => {
+// 	// mapbox
+// 	if(e.request.url.indexOf(TIAN_MAP_URL) > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r){
+// 				return r
+// 			}else{
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(MAP_BOX_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// 	if(MAP_BOX_HOSTNAME.indexOf(new URL(e.request.url).hostname) > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r){
+// 				return r
+// 			}else{
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(TIAN_MAP_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// 	// Cesium online
+// 	if(CESIUM_ONLINE_HOSTNAME.indexOf(new URL(e.request.url).hostname) > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r) {
+// 				return r
+// 			}else{
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(CESIUM_ONLINE_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// 	// Cesium SDK
+// 	if(e.request.url.indexOf(CESIUM_URL) > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r){
+// 				return r
+// 			}else {
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(CESIUM_SDK_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// 	// 3dtiles
+// 	if(e.request.url.indexOf(TILES_URL) > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r){
+// 				return r
+// 			}else{
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(TILES_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// 	// model
+// 	if(e.request.url.indexOf('warner.glb') > -1 ||
+// 		e.request.url.indexOf('geojson') > -1){
+// 		e.respondWith((async () => {
+// 			const r = await caches.match(e.request)
+// 			if (r){
+// 				return r
+// 			}else{
+// 				const response = await fetch(e.request)
+// 				const cache = await caches.open(MODEL_CACHE)
+// 				cache.put(e.request, response.clone())
+// 				return response
+// 			}
+// 		})())
+// 	}
+// })

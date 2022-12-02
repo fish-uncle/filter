@@ -4,11 +4,14 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
+import Screen from '@/core/Screen'
 
 export default defineComponent({
 	name: 'HomeMap',
 	setup() {
 		onMounted(() => {
+			const screen: Screen = Screen.Instance()
+			screen.init()
 			window.map.install()
 			window.map.init()
 			new window.Cesium.ScreenSpaceEventHandler(window.map.viewer.scene.canvas).setInputAction(function (e) {
