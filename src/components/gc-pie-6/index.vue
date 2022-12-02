@@ -1,16 +1,16 @@
 <template lang="pug">
-.gc-pie-5.pos-r.fn-flex.flex-column
-	.gc-pie-5-chart(ref="chartDom")
-	.gc-pie-5-value.pos-a
+.gc-pie-6.pos-r.fn-flex.flex-column
+	.gc-pie-6-chart(ref="chartDom")
+	.gc-pie-6-value.pos-a.fn-flex.flex-column
 		h2.font-num.text-center {{ modelValue }}%
-	.gc-pie-5-label.fn-flex {{ label }}
+		span {{ label }}
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import options from './options'
 
 export default defineComponent({
-	name: 'GcPie5',
+	name: 'GcPie6',
 	props: {
 		modelValue: {
 			type: Number,
@@ -21,7 +21,7 @@ export default defineComponent({
 		color: {
 			type: Array,
 			default() {
-				return ['#3CE8FF']
+				return ['#023066', '#00DDFF', 'rgba(0, 221, 255, 0.5)']
 			},
 		},
 		label: {
@@ -63,37 +63,34 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.gc-pie-5 {
-	height: 212px;
-	width: 162px;
+.gc-pie-6 {
+	height: 200px;
+	width: 200px;
 	align-items: center;
 	user-select: none;
 	justify-content: center;
-	background: linear-gradient(360deg, #00649c 0%, rgba(0, 100, 156, 0) 100%);
 }
-.gc-pie-5-chart {
-	height: 150px;
-	width: 150px;
+.gc-pie-6-chart {
+	height: 200px;
+	width: 200px;
 }
-.gc-pie-5-label {
-	font-weight: 400;
-	font-size: 18px;
-	color: #ffffff;
-	justify-content: center;
-}
-.gc-pie-5-value {
-	height: 110px;
-	width: 110px;
+.gc-pie-6-value {
+	height: 200px;
+	width: 200px;
 	font-weight: 700;
 	font-size: 34px;
 	left: 50%;
-	top: 72px;
 	transform: translateX(-50%);
 	align-items: center;
 	justify-content: center;
+	span {
+		font-weight: 400;
+		font-size: 20px;
+		color: #c0c1c8;
+	}
 	h2 {
 		font-weight: 700;
-		font-size: 40px;
+		font-size: 36px;
 		color: #ffffff;
 		margin-top: 4px;
 	}

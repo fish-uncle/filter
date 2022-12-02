@@ -1,6 +1,6 @@
 <template lang="pug">
-.gc-table
-	.gc-table-thead-box
+.gc-table(:class="{ 'gc-table-border': !hideBorder }")
+	.gc-table-thead-box(v-if="!hideHeader")
 		table.gc-table-box(:class="{ 'gc-table-stripe': stripe }")
 			thead.gc-table-thead
 				tr
@@ -15,7 +15,8 @@
 							:colspan="colspan(rowIndex, columnIndex)",
 							:rowspan="rowspan(rowIndex, columnIndex)",
 							:width="child.width",
-							:key="columnIndex"
+							:key="columnIndex",
+							:style="child.style"
 						) {{ child && item[child['key']] }}
 </template>
 <script lang="ts">
@@ -29,6 +30,14 @@ export default defineComponent({
 			default() {
 				return []
 			},
+		},
+		hideHeader: {
+			default: false,
+			type: Boolean,
+		},
+		hideBorder: {
+			default: false,
+			type: Boolean,
 		},
 		columns: {
 			type: Array,
@@ -85,15 +94,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 .gc-table {
 	margin-top: 20px;
-	table,
-	th,
-	td {
-		border: 0.5px solid #1d6a96;
+	&.gc-table-border {
+		.gc-table-box {
+			border: 1px solid #1d6a96;
+		}
+		table,
+		th,
+		td {
+			border: 0.5px solid #1d6a96;
+		}
 	}
 }
 
 .gc-table-box {
-	border: 1px solid #1d6a96;
 	width: 100%;
 	border-spacing: 0;
 	tr {

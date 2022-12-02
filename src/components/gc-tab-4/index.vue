@@ -62,8 +62,7 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .gc-tab-4 {
-	height: 250px;
-	justify-content: center;
+	user-select: none;
 }
 .gc-tab-4-normal {
 	.gc-tab-4-item {

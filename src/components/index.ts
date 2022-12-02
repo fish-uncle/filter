@@ -12,6 +12,7 @@ import GcDate1 from '@/components/gc-date-1/index.vue'
 import GcDate2 from '@/components/gc-date-2/index.vue'
 import GcTarget1 from '@/components/gc-target-1/index.vue'
 import GcTarget2 from '@/components/gc-target-2/index.vue'
+import GcTarget3 from '@/components/gc-target-3/index.vue'
 import GcProgress from '@/components/gc-progress/index.vue'
 import GcLine1 from '@/components/gc-line-1/index.vue'
 import GcLine2 from '@/components/gc-line-2/index.vue'
@@ -27,6 +28,7 @@ import GcPie2 from '@/components/gc-pie-2/index.vue'
 import GcPie3 from '@/components/gc-pie-3/index.vue'
 import GcPie4 from '@/components/gc-pie-4/index.vue'
 import GcPie5 from '@/components/gc-pie-5/index.vue'
+import GcPie6 from '@/components/gc-pie-6/index.vue'
 import GcEnlarge from '@/components/gc-enlarge/index.vue'
 import GcStep from '@/components/gc-step/index.vue'
 import GcTable from '@/components/gc-table/index.vue'
@@ -48,6 +50,7 @@ export default [
 	GcDate2,
 	GcTarget1,
 	GcTarget2,
+	GcTarget3,
 	GcProgress,
 	GcLine1,
 	GcLine2,
@@ -63,6 +66,7 @@ export default [
 	GcPie3,
 	GcPie4,
 	GcPie5,
+	GcPie6,
 	GcEnlarge,
 	GcStep,
 	GcTable,

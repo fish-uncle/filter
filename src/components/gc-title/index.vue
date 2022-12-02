@@ -1,12 +1,12 @@
 <template lang="pug">
-.gc-title.fn-flex.flex-column
+.gc-title.fn-flex.flex-column.pos-r
 	.gc-title-content.fn-flex.pos-r
 		.gc-title-icon.fn-flex
 			span
 		.gc-title-label.font-title {{ label }}
 		.gc-title-right.fn-flex
 			slot
-	.gc-title-line.pos-r
+	.gc-title-line.pos-a
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -36,7 +36,7 @@ export default defineComponent({
 </style>
 <style lang="scss" scoped>
 .gc-title-line {
-	margin-top: 3px;
+	bottom: 0;
 	width: 100%;
 	height: 1px;
 	background: rgba(255, 255, 255, 0.4);
@@ -63,9 +63,11 @@ export default defineComponent({
 .gc-title-content {
 	align-items: center;
 	z-index: 1;
+	height: calc(100% - 4px);
 }
 .gc-title {
 	width: 100%;
+	height: 32px;
 	user-select: none;
 }
 .gc-title-label {

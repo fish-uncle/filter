@@ -10,7 +10,7 @@ export default (data, props) => {
 			},
 		})
 		value.push({
-			value: 2,
+			value: 0.001,
 			itemStyle: {
 				normal: {
 					color: 'rgba(0,0,0,0)',
@@ -21,6 +21,7 @@ export default (data, props) => {
 	return {
 		series: [
 			{
+				minAngle: 6,
 				type: 'pie',
 				radius: ['80%', '85%'],
 				center: ['50%', '50%'],
