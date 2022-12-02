@@ -66,7 +66,14 @@ export default (data, props) => {
 				smooth: true,
 				itemStyle: {
 					normal: {
-						color: color1,
+						color: {
+							type: 'linear',
+							colorStops: [
+								{ offset: 0, color: hexToRgba(color1, 0) },
+								{ offset: 0.5, color: color1 },
+								{ offset: 1, color: hexToRgba(color1, 0) },
+							],
+						},
 						lineStyle: {
 							width: 2,
 							type: 'solid',

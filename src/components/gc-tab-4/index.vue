@@ -76,7 +76,7 @@ export default defineComponent({
 .gc-tab-4-small {
 	.gc-tab-4-item {
 		width: 140px;
-		height: 60px;
+		height: 64px;
 		+ .gc-tab-4-item {
 			margin-top: 12px;
 		}
@@ -85,9 +85,10 @@ export default defineComponent({
 .gc-tab-4-item {
 	padding: 14px 8px;
 	background: rgba(0, 100, 156, 0.4);
-	border-radius: 2px;
+	border-radius: 6px;
 	border: 1px solid transparent;
 	transition: all 0.3s;
+	justify-content: center;
 
 	span {
 		font-weight: 400;
@@ -98,12 +99,13 @@ export default defineComponent({
 		font-weight: 700;
 		font-size: 20px;
 		color: rgba(255, 255, 255, 0.75);
+		margin-top: 4px;
 	}
 	i {
 		background-image: url('../../imgs/gc-tab-4/icon.png');
 		background-size: 11px 13px;
 		background-position: center;
-		top: 15px;
+		top: 14px;
 		right: 11px;
 		opacity: 0;
 		width: 11px;
@@ -113,6 +115,9 @@ export default defineComponent({
 	&.active {
 		background: #004483;
 		border: 1px solid #3be8ff;
+		span{
+			color: #fff;
+		}
 		h2 {
 			color: #3ce8ff;
 		}
