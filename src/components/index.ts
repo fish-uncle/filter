@@ -29,6 +29,7 @@ import GcPie3 from '@/components/gc-pie-3/index.vue'
 import GcPie4 from '@/components/gc-pie-4/index.vue'
 import GcPie5 from '@/components/gc-pie-5/index.vue'
 import GcPie6 from '@/components/gc-pie-6/index.vue'
+import GcPie7 from '@/components/gc-pie-7/index.vue'
 import GcEnlarge from '@/components/gc-enlarge/index.vue'
 import GcStep from '@/components/gc-step/index.vue'
 import GcTable from '@/components/gc-table/index.vue'
@@ -67,6 +68,7 @@ export default [
 	GcPie4,
 	GcPie5,
 	GcPie6,
+	GcPie7,
 	GcEnlarge,
 	GcStep,
 	GcTable,
