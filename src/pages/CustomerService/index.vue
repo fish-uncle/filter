@@ -6,7 +6,7 @@ customer-service-right
 map-marker
 </template>
 <script lang="ts">
-import { defineComponent, toRefs, reactive } from 'vue'
+import { defineComponent, toRefs, reactive, onMounted } from 'vue'
 import CustomerServiceLeft from './left.vue'
 import CustomerServiceRight from './right.vue'
 import MapMarker from './map/marker.vue'
@@ -21,6 +21,8 @@ export default defineComponent({
 	setup() {
 		const state = reactive({
 			total: 931480,
+		})
+		onMounted(() => {
 		})
 		return {
 			...toRefs(state),

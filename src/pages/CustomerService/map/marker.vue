@@ -1,6 +1,6 @@
 <template lang="pug">
 gc-marker-container(v-for="(item, index) in list", :key="index", v-bind="item")
-	.custom-service-map-marker-1.fn-flex.flex-column
+	.custom-service-map-marker-1.fn-flex.flex-column(:class="{ active: show[index] }")
 		.custom-service-map-marker-1-top
 			h2.fn-flex {{ item.label }}
 			.custom-service-map-marker-1-top-item.fn-flex
@@ -13,20 +13,30 @@ gc-marker-container(v-for="(item, index) in list", :key="index", v-bind="item")
 				label 营收金额
 				span {{ item.value3 }}万
 		p.pos-r
-		img(:src="icon")
+		img.cursor-pointer(:src="icon", v-marker-click="handlerClick(index)")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+import { MarkerClick } from '@/directives'
 
 const icon = require('@/imgs/map/marker1.png')
 
 export default defineComponent({
 	name: 'MapMarker',
+	directives: {
+		MarkerClick,
+	},
 	setup() {
 		const state = reactive({
 			list: [] as any[],
+			show: [] as boolean[],
 			icon,
 		})
+		const handlerClick = index => {
+			return () => {
+				state.show[index] = !state.show[index]
+			}
+		}
 		const init = () => {
 			setTimeout(() => {
 				state.list = [
@@ -58,11 +68,12 @@ export default defineComponent({
 		})
 		return {
 			...toRefs(state),
+			handlerClick,
 		}
 	},
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .custom-service-map-marker-1-top-item {
 	padding: 0 9px;
 	margin-top: 14px;
@@ -86,6 +97,11 @@ export default defineComponent({
 	width: 262px;
 	align-items: center;
 	justify-content: center;
+	pointer-events: none;
+	opacity: 0;
+	transition: all 0.3s;
+	transform: translateY(100%);
+
 	h2 {
 		background: rgba(0, 100, 156, 0.4);
 		border: 2px solid #3be8ff;
@@ -103,6 +119,9 @@ export default defineComponent({
 		width: 2px;
 		height: 70px;
 		background: #ffffff;
+		opacity: 0;
+		transition: all 0.3s;
+		transform: translateY(100%);
 		&:before {
 			content: '';
 			position: absolute;
@@ -118,6 +137,18 @@ export default defineComponent({
 	img {
 		width: 60px;
 		height: 60px;
+	}
+	&.active {
+		p {
+			pointer-events: auto;
+			opacity: 1;
+			transform: translateY(0);
+		}
+		.custom-service-map-marker-1-top {
+			pointer-events: auto;
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 }
 </style>

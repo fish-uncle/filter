@@ -4,7 +4,7 @@
 		slot
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, onBeforeUnmount, ref, reactive, PropType, toRefs } from 'vue'
+import { defineComponent, onMounted, onBeforeUnmount, ref, reactive, PropType, toRefs, onUpdated } from 'vue'
 import Screen from '@/core/Screen'
 
 interface PositionProps {
@@ -29,6 +29,7 @@ export default defineComponent({
 
 		const init = () => {
 			if (markerRef.value) {
+				console.log(markerRef)
 				state.instance = window.map.marker.load(props.position, markerRef.value.innerHTML)
 			}
 		}
@@ -36,7 +37,12 @@ export default defineComponent({
 		onMounted(() => {
 			init()
 		})
-		
+
+		onUpdated(() => {
+			// @ts-ignore
+			state.instance.setContent(markerRef.value.innerHTML)
+		})
+
 		onBeforeUnmount(() => {
 			if (state.instance) {
 				;(state.instance as any).remove()
