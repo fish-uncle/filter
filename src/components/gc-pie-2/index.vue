@@ -224,7 +224,6 @@ export default defineComponent({
 			left: 50%;
 			width: 4px;
 			height: 6px;
-			margin-left: -1px;
 			background-color: rgba(255, 255, 255, 0.2);
 			transform-origin: 0 74px;
 		}
