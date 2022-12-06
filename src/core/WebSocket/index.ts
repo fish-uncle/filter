@@ -93,7 +93,6 @@ export default class Notice extends Factory<Notice> {
 
 	responseCallback(message, _this) {
 		// const data = JSON.parse(message.body)
-		// todo emit
 		// if (data?.pushType == 1) {
 		// 	_this.emit('warn-active', data)
 		// }

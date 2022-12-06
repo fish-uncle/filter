@@ -1,5 +1,5 @@
 export default {
-	path: '/components',
-	name: 'Components',
+	path: '/__guide__',
+	name: 'Guide',
 	component: () => import('./index.vue'),
 }

@@ -29,7 +29,6 @@ export default defineComponent({
 
 		const init = () => {
 			if (markerRef.value) {
-				console.log(markerRef)
 				state.instance = window.map.marker.load(props.position, markerRef.value.innerHTML)
 			}
 		}

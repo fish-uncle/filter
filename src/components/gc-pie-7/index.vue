@@ -4,7 +4,7 @@
 	.gc-pie-7-value.font-num.pos-a
 		span.fn-flex {{ currentRatio }}
 		ul.pos-a
-			p.pos-a(v-for="(item, index) in icon", :key="index", :style="{ transform: `rotate(${7.2 * index}deg)` }")
+			p.pos-a(v-for="(item, index) in ringIconList", :key="index", :style="{ transform: `rotate(${4.5 * index}deg)` }")
 	.gc-pie-7-unit.fn-flex.flex-column(@mouseover="mouseover", @mouseleave="mouseleave")
 		.gc-pie-7-unit-list(:style="style")
 			.gc-pie-7-unit-item.fn-flex.cursor-pointer(
@@ -58,7 +58,7 @@ export default defineComponent({
 			currentValue: props.modelValue,
 			activeIndex: 0,
 			timer: null as any,
-			icon: new Int8Array(50),
+			ringIconList: new Int8Array(80),
 		})
 		const style = computed(() => {
 			if (state.currentValue) {
@@ -194,14 +194,14 @@ export default defineComponent({
 	&:after {
 		content: '';
 		position: absolute;
-		width: 126px;
-		height: 126px;
+		width: 134px;
+		height: 134px;
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 		border-radius: 120px;
 		border: 1px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 0 0 0 27px rgba(255, 255, 255, 0.05);
+		box-shadow: 0 0 0 23px rgba(255, 255, 255, 0.05);
 	}
 	span {
 		margin-top: 4px;
@@ -214,16 +214,16 @@ export default defineComponent({
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		width: 106px;
-		height: 106px;
+		width: 110px;
+		height: 110px;
 
 		p {
-			top: 3%;
+			top: 0;
 			left: 50%;
-			width: 4px;
-			height: 6px;
+			width: 2px;
+			height: 4px;
 			background-color: rgba(255, 255, 255, 0.2);
-			transform-origin: 0 50px;
+			transform-origin: 0 55px;
 		}
 	}
 }

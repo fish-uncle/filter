@@ -46,9 +46,11 @@ export default defineComponent({
 			currentLabel: props.options[0].label,
 		})
 		const handlerClick = (item): void => {
-			state.currentValue = item.value
-			state.currentLabel = item.label
-			emit('change', state.currentValue)
+			if (state.currentValue !== item.value) {
+				state.currentValue = item.value
+				state.currentLabel = item.label
+				emit('change', state.currentValue)
+			}
 		}
 		onMounted(() => {
 			emit('init', state.currentValue)
@@ -84,9 +86,8 @@ export default defineComponent({
 }
 .gc-tab-4-item {
 	padding: 14px 8px;
-	background: rgba(0, 100, 156, 0.4);
+	background: rgba(0, 100, 156, 0.1);
 	border-radius: 6px;
-	border: 1px solid transparent;
 	transition: all 0.3s;
 	justify-content: center;
 
@@ -113,9 +114,9 @@ export default defineComponent({
 		transition: all 0.3s;
 	}
 	&.active {
-		background: #004483;
-		border: 1px solid #3be8ff;
-		span{
+		background: rgba(0, 100, 156, 0.6);
+		box-shadow: inset 0 0 4px #00ddff;
+		span {
 			color: #fff;
 		}
 		h2 {

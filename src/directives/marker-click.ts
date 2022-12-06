@@ -52,7 +52,7 @@ export default {
 		if (!nodeList.has(el)) {
 			nodeList.set(el, [])
 		}
-		el.id = uuid()
+		el.setAttribute('data-maker-click', uuid())
 		nodeList.get(el)!.push({
 			documentHandler: createDocumentHandler(el, binding),
 			bindingFn: binding.value,

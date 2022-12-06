@@ -10,12 +10,17 @@
 			)
 				h2.ellipsis {{ item.label }}
 				p.font-num {{ item.value }}
-	.gc-pie-2-chart(ref="chartDom")
 	.gc-pie-2-value.pos-a.fn-flex.flex-column
-		h2.font-num {{ currentRatio }}
-		h3 {{ currentLabel }}
+		h1.pos-a
+		h2.pos-a
+		h3.pos-a
+		h4.pos-a
+			label.pos-a {{ currentLabel }}
+			span.pos-a {{ currentRatio }}
+		img.pos-a(:src="icon[activeIndex % icon.length]")
 		ul.pos-a
-			p.pos-a(v-for="(item, index) in icon", :key="index", :style="{ transform: `rotate(${7.2 * index}deg)` }")
+			p.pos-a(v-for="(item, index) in ringIconList", :key="index", :style="{ transform: `rotate(${7.2 * index}deg)` }")
+	.gc-pie-2-chart(ref="chartDom")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref, computed, PropType } from 'vue'
@@ -36,10 +41,16 @@ export default defineComponent({
 				return []
 			},
 		},
+		icon: {
+			type: Array,
+			default() {
+				return []
+			},
+		},
 		color: {
 			type: Array,
 			default() {
-				return ['#00FFCF']
+				return ['#3BE8FF']
 			},
 		},
 		unit: {
@@ -58,7 +69,7 @@ export default defineComponent({
 			currentValue: props.modelValue,
 			activeIndex: 0,
 			timer: null as any,
-			icon: new Int8Array(50),
+			ringIconList: new Int8Array(50),
 		})
 		const style = computed(() => {
 			if (state.currentValue) {
@@ -81,7 +92,7 @@ export default defineComponent({
 					return `${state.currentValue[state.activeIndex].label}`
 				}
 			}
-			return `0%`
+			return ''
 		})
 		const currentRatio = computed(() => {
 			if (state.currentValue) {
@@ -102,49 +113,38 @@ export default defineComponent({
 		const mouseleave = () => {
 			clearInterval(state.timer)
 			if (state.currentValue.length) {
-				myChart.dispatchAction({
-					type: 'highlight',
-					seriesIndex: 0,
-					dataIndex: (state.activeIndex % state.currentValue.length) * 2,
-				})
+				myChart.setOption(
+					options(
+						state.currentValue[state.activeIndex].ratio,
+						props.color[state.activeIndex % props.color.length],
+					),
+				)
 			}
 			state.timer = setInterval(() => {
-				myChart.dispatchAction({
-					type: 'downplay',
-					seriesIndex: 0,
-					dataIndex: (state.activeIndex % state.currentValue.length) * 2,
-				})
 				if (state.activeIndex >= state.currentValue.length - 1) {
 					state.activeIndex = 0
 				} else {
 					state.activeIndex = state.activeIndex + 1
 				}
-				myChart.dispatchAction({
-					type: 'highlight',
-					seriesIndex: 0,
-					dataIndex: (state.activeIndex % state.currentValue.length) * 2,
-				})
+				myChart.setOption(
+					options(
+						state.currentValue[state.activeIndex].ratio,
+						props.color[state.activeIndex % props.color.length],
+					),
+				)
 			}, 2000)
 		}
 		const handlerClick = index => {
 			state.activeIndex = index
-			// @ts-ignore
-			state.currentValue.map((item, index) => {
-				myChart.dispatchAction({
-					type: 'downplay',
-					seriesIndex: 0,
-					dataIndex: (index % state.currentValue.length) * 2,
-				})
-			})
-			myChart.dispatchAction({
-				type: 'highlight',
-				seriesIndex: 0,
-				dataIndex: (state.activeIndex % state.currentValue.length) * 2,
-			})
+			myChart.setOption(
+				options(
+					state.currentValue[state.activeIndex].ratio,
+					props.color[state.activeIndex % props.color.length],
+				),
+			)
 		}
 		const init = () => {
 			chartDom.value && !myChart && (myChart = window.echarts.init(chartDom.value))
-			myChart.setOption(options(state.currentValue, props))
 			mouseleave()
 		}
 		const mouseover = () => {
@@ -180,37 +180,94 @@ export default defineComponent({
 }
 .gc-pie-2-chart,
 .gc-pie-2-value {
-	height: 232px;
-	width: 252px;
-	margin-left: 97px;
+	height: 180px;
+	width: 180px;
+	margin-left: 51px;
 }
 .gc-pie-2-value {
 	font-weight: 700;
 	font-size: 34px;
-	right: 0;
+	left: 178px;
 	align-items: center;
 	justify-content: center;
-	&:before {
+	h1 {
+		width: 130px;
+		height: 130px;
+		border-radius: 130px;
+		box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.1);
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+	}
+	h2 {
+		width: 112px;
+		height: 112px;
+		border-radius: 112px;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		background: #011730;
+		border: 1px solid rgba(59, 232, 255, 0.5);
+	}
+	h3 {
+		width: 68px;
+		height: 68px;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%);
 		content: '';
-		position: absolute;
-		background: rgba(99, 180, 255, 0.15);
-		width: 120px;
-		height: 120px;
+		background: rgba(59, 232, 255, 0.2);
+		border-radius: 68px;
+	}
+	h4 {
+		width: 5px;
+		height: 5px;
+		border-radius: 5px;
+		background: #ffffff;
+		top: 32px;
+		right: 32px;
+		color: #ffffff;
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			background-color: rgba(255, 255, 255, 0.4);
+			height: 1px;
+		}
+		&:before {
+			top: -8px;
+			right: -35px;
+			width: 40px;
+			transform: rotate(-30deg);
+		}
+		&:after {
+			top: -18px;
+			right: -132px;
+			width: 100px;
+		}
+		span {
+			top: -15px;
+			right: -132px;
+			font-weight: 400;
+			font-size: 18px;
+			width: 100px;
+			white-space: nowrap;
+		}
+		label {
+			top: -55px;
+			right: -132px;
+			font-weight: 700;
+			font-size: 24px;
+			width: 100px;
+			white-space: nowrap;
+		}
+	}
+	img {
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		border-radius: 120px;
-	}
-	h2 {
-		font-weight: 700;
-		font-size: 38px;
-		color: #ffffff;
-		margin-bottom: 12px;
-	}
-	h3 {
-		font-weight: 400;
-		font-size: 14px;
-		color: #ffffff;
+		width: 34px;
+		height: 34px;
 	}
 	ul {
 		top: 50%;
@@ -220,18 +277,16 @@ export default defineComponent({
 		height: 160px;
 
 		p {
-			top: 4%;
 			left: 50%;
 			width: 4px;
 			height: 6px;
-			background-color: rgba(255, 255, 255, 0.2);
-			transform-origin: 0 74px;
+			background-color: rgba(255, 255, 255, 0.4);
+			transform-origin: 0 80px;
 		}
 	}
 }
 .gc-pie-2-unit {
 	height: 224px;
-	flex: 1;
 	width: 178px;
 	overflow: hidden;
 }
@@ -244,16 +299,16 @@ export default defineComponent({
 	width: 100%;
 	height: 50px;
 	padding: 14px 12px;
-	border-radius: 2px;
-	background: rgba(0, 100, 156, 0.4);
+	border-radius: 6px;
+	background: rgba(0, 100, 156, 0.1);
 	border: 1px solid transparent;
 	transition: all 0.3s;
 	+ .gc-pie-2-unit-item {
 		margin-top: 8px;
 	}
 	&.active {
-		border: 1px solid #3be8ff;
-		background: #004483;
+		background: rgba(0, 100, 156, 0.6);
+		box-shadow: inset 0 0 4px #00ddff;
 		p {
 			color: #3be8ff;
 		}

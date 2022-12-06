@@ -4,18 +4,17 @@
 		home-map
 		home-bg
 		home-nav
-		customer-service(v-if="isCustomerService")
-		work-order-payment(v-if="isWorkOrderPayment")
+		customer-service(v-if="nav.isCustomerService")
+		work-order-payment(v-if="nav.isWorkOrderPayment")
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import HomeMap from './Map/index.vue'
 import HomeNav from './Nav/index.vue'
 import HomeBg from './Bg/index.vue'
 import CustomerService from './CustomerService/index.vue'
 import WorkOrderPayment from './WorkOrderPayment/index.vue'
-import { storeToRefs } from 'pinia'
-import { useCommonStore } from '@/store'
+import Nav from '@/core/Nav'
 
 export default defineComponent({
 	name: 'Home',
@@ -27,11 +26,11 @@ export default defineComponent({
 		WorkOrderPayment,
 	},
 	setup() {
-		const commonStore = useCommonStore()
-		const { isCustomerService, isWorkOrderPayment } = storeToRefs(commonStore)
+		const state = reactive({
+			nav: Nav.Instance() as Nav,
+		})
 		return {
-			isCustomerService,
-			isWorkOrderPayment,
+			...toRefs(state),
 		}
 	},
 })

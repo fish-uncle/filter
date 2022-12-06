@@ -29,6 +29,7 @@ export default class Map extends Factory<Map> {
 	}
 
 	init() {
+		this.install()
 		this.marker = MapMarker.Instance(this.viewer)
 		this.terrain.init(this.viewer)
 		// this.building.init(this.viewer)

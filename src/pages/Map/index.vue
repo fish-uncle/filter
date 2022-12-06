@@ -12,7 +12,6 @@ export default defineComponent({
 		onMounted(() => {
 			const screen: Screen = Screen.Instance()
 			screen.init()
-			window.map.install()
 			window.map.init()
 			new window.Cesium.ScreenSpaceEventHandler(window.map.viewer.scene.canvas).setInputAction(function (e) {
 				window.map.camera.clickPosition(window.map.viewer, e)

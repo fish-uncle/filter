@@ -47,10 +47,12 @@ export default defineComponent({
 			state.open = false
 		}
 		const handlerClick = (item): void => {
-			state.currentValue = item.value
-			state.currentLabel = item.label
+			if (state.currentValue !== item.value) {
+				state.currentValue = item.value
+				state.currentLabel = item.label
+				emit('change', state.currentValue)
+			}
 			state.open = false
-			emit('change', state.currentValue)
 		}
 		onMounted(() => {
 			emit('init', state.currentValue)

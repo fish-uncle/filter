@@ -1,40 +1,72 @@
-export default (data, props) => {
-	const color1 = props.color[0]
-	const value: any[] = []
-	data.map(item => {
-		value.push({
-			value: item.value,
-			itemStyle: {
-				normal: {
-					color: 'rgba(99, 180, 255, 0.18)',
-				},
-				emphasis: {
-					color: color1,
-				},
-			},
-		})
-		value.push({
-			value: 0.001,
-			itemStyle: {
-				normal: {
-					color: 'rgba(0,0,0,0)',
-				},
-			},
-		})
-	})
+import { hexToRgba } from '@/utils'
+
+export default (data, color) => {
+	const value = data >= 100 ? 100 : data
 	return {
 		series: [
 			{
 				minAngle: 6,
 				type: 'pie',
-				radius: ['70%', '85%'],
+				radius: ['55%', '62%'],
 				center: ['50%', '50%'],
 				labelLine: {
 					normal: {
 						show: false,
 					},
 				},
-				data: value,
+				data: [
+					{
+						value,
+						itemStyle: {
+							normal: {
+								color,
+							},
+						},
+					},
+					{
+						value: 100 - value,
+						itemStyle: {
+							normal: {
+								color: 'rgba(0, 0, 0, 0)',
+							},
+						},
+					},
+				],
+			},
+			{
+				minAngle: 6,
+				type: 'pie',
+				radius: ['0', '62%'],
+				center: ['50%', '50%'],
+				labelLine: {
+					normal: {
+						show: false,
+					},
+				},
+				data: [
+					{
+						value,
+						itemStyle: {
+							normal: {
+								color: {
+									type: 'linear',
+									colorStops: [
+										{ offset: 0, color: hexToRgba(color, 0.23) },
+										{ offset: 1, color: hexToRgba(color, 0.9) },
+									],
+								},
+							},
+						},
+					},
+					{
+						value: 100 - value,
+						itemStyle: {
+							normal: {
+								color: 'rgba(0, 0, 0, 0)',
+							},
+						},
+					},
+				],
 			},
 		],
 	}

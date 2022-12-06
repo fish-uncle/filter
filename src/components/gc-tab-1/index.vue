@@ -35,9 +35,11 @@ export default defineComponent({
 			currentLabel: props.options[0].label,
 		})
 		const handlerClick = (item): void => {
-			state.currentValue = item.value
-			state.currentLabel = item.label
-			emit('change', state.currentValue)
+			if (state.currentValue !== item.value) {
+				state.currentValue = item.value
+				state.currentLabel = item.label
+				emit('change', state.currentValue)
+			}
 		}
 		onMounted(() => {
 			emit('init', state.currentValue)

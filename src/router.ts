@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw, Router } from 'vue-rout
 
 const routes: Array<RouteRecordRaw> = []
 const context = require.context('./pages', true, /\.(route.ts)$/)
-const contextTests = require.context('../tests', true, /\.(route.ts)$/)
+const contextTests = require.context('../tests/pages', true, /\.(route.ts)$/)
 
 context.keys().forEach(name => {
 	routes.push(context(name).default)

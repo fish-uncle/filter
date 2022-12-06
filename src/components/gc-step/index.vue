@@ -1,5 +1,5 @@
 <template lang="pug">
-.gc-step.fn-flex.pos-a
+.gc-step.fn-flex
 	.gc-step-item.fn-flex.cursor-pointer(
 		v-for="(item, index) in list",
 		:key="index",
@@ -52,9 +52,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .gc-step {
 	user-select: none;
-	width: 1114px;
-	left: 17px;
-	bottom: 72px;
 	align-items: center;
 	justify-content: center;
 }

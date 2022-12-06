@@ -43,9 +43,11 @@ export default defineComponent({
 			currentLabel: props.options[0].label,
 		})
 		const handlerClick = (item): void => {
-			state.currentValue = item.value
-			state.currentLabel = item.label
-			emit('change', state.currentValue)
+			if (state.currentValue !== item.value) {
+				state.currentValue = item.value
+				state.currentLabel = item.label
+				emit('change', state.currentValue)
+			}
 		}
 		onMounted(() => {
 			emit('init', state.currentValue)
@@ -60,7 +62,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .gc-tab-3 {
 	background: rgba(0, 105, 164, 0.46);
-	border: 1px solid #1D6A96;
+	border: 1px solid #1d6a96;
 	border-radius: 4px;
 	user-select: none;
 	padding: 8px;
@@ -69,7 +71,7 @@ export default defineComponent({
 .gc-tab-3-label {
 	font-weight: 400;
 	font-size: 14px;
-	color: #3CE8FF;
+	color: #3ce8ff;
 	height: 32px;
 	align-items: center;
 	background: rgba(0, 0, 0, 0.01);
@@ -83,12 +85,12 @@ export default defineComponent({
 	width: 160px;
 	padding: 12px 8px;
 	align-items: center;
-	color: #FFFFFF;
+	color: #ffffff;
 	font-weight: 400;
 	font-size: 16px;
 	&.active {
 		font-weight: 500;
-		background: #1D6A96;
+		background: #1d6a96;
 	}
 }
 </style>

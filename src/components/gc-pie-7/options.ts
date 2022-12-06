@@ -23,7 +23,7 @@ export default (data, props) => {
 			{
 				minAngle: 6,
 				type: 'pie',
-				radius: ['70%', '85%'],
+				radius: ['75%', '85%'],
 				center: ['50%', '50%'],
 				labelLine: {
 					normal: {

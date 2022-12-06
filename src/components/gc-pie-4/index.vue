@@ -4,7 +4,7 @@
 	.gc-pie-4-value.pos-a.fn-flex.flex-column
 		h2.font-num {{ currentRatio }}
 		ul.pos-a
-			p.pos-a(v-for="(item, index) in icon", :key="index", :style="{ transform: `rotate(${7.2 * index}deg)` }")
+			p.pos-a(v-for="(item, index) in ringIconList", :key="index", :style="{ transform: `rotate(${4.5 * index}deg)` }")
 	.gc-pie-4-unit.fn-flex.flex-column(@mouseover="mouseover", @mouseleave="mouseleave")
 		.gc-pie-4-unit-list(:style="style")
 			.gc-pie-4-unit-item.fn-flex.cursor-pointer(
@@ -64,7 +64,7 @@ export default defineComponent({
 			currentValue: props.modelValue,
 			activeIndex: 0,
 			timer: null as any,
-			icon: new Int8Array(50),
+			ringIconList: new Int8Array(80),
 		})
 		const style = computed(() => {
 			if (state.currentValue) {
@@ -87,7 +87,7 @@ export default defineComponent({
 					return `${state.currentValue[state.activeIndex].label}`
 				}
 			}
-			return `0%`
+			return ''
 		})
 		const currentRatio = computed(() => {
 			if (state.currentValue) {
@@ -242,17 +242,16 @@ export default defineComponent({
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-		width: 160px;
-		height: 160px;
+		width: 150px;
+		height: 150px;
 
 		p {
-			top: 4%;
 			left: 50%;
-			width: 4px;
+			width: 3px;
 			height: 6px;
 			margin-left: -1px;
 			background-color: rgba(255, 255, 255, 0.2);
-			transform-origin: 0 74px;
+			transform-origin: 0 75px;
 		}
 	}
 }
