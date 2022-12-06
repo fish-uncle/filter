@@ -1,5 +1,5 @@
 <template lang="pug">
-.enlarge-left-two.fn-flex.flex-column
+.fn-flex.flex-column
 	gc-date1(style="margin-left: auto", @init="init", @change="init")
 	gc-table(:stripe="true", :columns="columns1", v-model="list1")
 	gc-table(:stripe="true", :columns="columns2", v-model="list2")
@@ -44,8 +44,3 @@ export default defineComponent({
 	},
 })
 </script>
-<style lang="scss" scoped>
-.enlarge-left-two {
-	width: 100%;
-}
-</style>

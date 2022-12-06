@@ -48,6 +48,7 @@
 		"autoprefixer": "^9.8.8",
 		"babel-eslint": "^10.1.0",
 		"babel-plugin-transform-class-properties": "^6.24.1",
+		"coa": "^2.0.2",
 		"copy-webpack-plugin": "^6.4.1",
 		"eslint": "^8.19.0",
 		"eslint-define-config": "^1.5.1",

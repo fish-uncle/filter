@@ -1,5 +1,5 @@
 <template lang="pug">
-.enlarge-left-two.fn-flex.flex-column
+.fn-flex.flex-column
 	gc-table(:stripe="true", :columns="columns", v-model="list", :hide-header="true", :hide-border="true")
 </template>
 <script lang="ts">
@@ -78,8 +78,3 @@ export default defineComponent({
 	},
 })
 </script>
-<style lang="scss" scoped>
-.enlarge-left-two {
-	width: 100%;
-}
-</style>

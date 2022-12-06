@@ -8,7 +8,11 @@ gc-title(label="大用户分析TOP10")
 		span(style="margin-left: 45px; margin-right: 160px") 用户名
 		span 本月用气(m³)/环比
 		span(style="margin-left: 46px") 年度累计用气(m³)/同比
-	.right-five-item.fn-flex(v-for="(item, index) in list" :key="index")
+	//gc-enlarge(v-for="(item, index) in list", label="用户画像", :width="470", :height="658")
+	//	enlarge-right-five
+	//	template(v-slot:content="scope")
+	//.right-five-item.fn-flex.cursor-pointer(:key="index")
+	.right-five-item.fn-flex(v-for="(item, index) in list", :key="index")
 		i.font-num.fn-flex {{ index + 1 }}
 		span.ellipsis(style="width: 208px") {{ item.company }}
 		.right-five-item-box.fn-flex
@@ -26,12 +30,14 @@ gc-title(label="大用户分析TOP10")
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
 import { rightFiveApi } from '@/api/workorder-payment.api'
+import EnlargeRightFive from "../enlarge/right-five.vue";
 
 const downIcon = require('@/imgs/workorder-payment/right-six/down.png')
 const upIcon = require('@/imgs/workorder-payment/right-six/up.png')
 
 export default defineComponent({
 	name: 'RightFive',
+	components: { EnlargeRightFive },
 	setup() {
 		const state = reactive({
 			list: [],
@@ -55,6 +61,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .right-five {
 	margin-top: 12px;
+	user-select: none;
 }
 .right-fiv-item-type {
 	width: 83px;
@@ -64,11 +71,10 @@ export default defineComponent({
 	padding: 4px;
 	align-items: center;
 	justify-content: center;
-	span{
+	span {
 		margin-right: auto;
 	}
-	img{
-		
+	img {
 	}
 }
 .right-fiv-item-type2 {

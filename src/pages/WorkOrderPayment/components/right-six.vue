@@ -42,6 +42,9 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
+.right-six {
+	user-select: none;
+}
 .right-six-item {
 	padding: 0 8px 0 6px;
 	justify-content: center;

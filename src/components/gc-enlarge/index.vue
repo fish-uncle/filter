@@ -1,5 +1,6 @@
 <template lang="pug">
-.gc-enlarge.cursor-pointer(@click="handlerClick")
+.gc-enlarge.cursor-pointer(@click="handlerOpen", v-if="!$slots.content")
+slot(name="content" :handlerOpen="handlerOpen", :handlerClose="handlerClose")
 teleport(to="#home-content", v-if="open1")
 	transition(name="jump")
 		.gc-enlarge-box.pos-f.fn-flex(v-if="open2")
@@ -44,7 +45,7 @@ export default defineComponent({
 			emit('close')
 			emit('change', state.open1)
 		}
-		const handlerClick = async () => {
+		const handlerOpen = async () => {
 			state.open1 = true
 			await nextTick()
 			state.open2 = true
@@ -53,7 +54,7 @@ export default defineComponent({
 		}
 		return {
 			...toRefs(state),
-			handlerClick,
+			handlerOpen,
 			handlerClose,
 		}
 	},

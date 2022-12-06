@@ -44,3 +44,12 @@ export const areaOptions = [
 	{ label: '千窑镇', value: '千窑镇' },
 	{ label: '天凝镇', value: '天凝镇' },
 ]
+
+export const personasOptions = [
+	{ label: '基本信息', value: '基本信息' },
+	{ label: '抄表记录', value: '抄表记录' },
+	{ label: '费用记录', value: '费用记录' },
+	{ label: '收费记录', value: '收费记录' },
+	{ label: '拆换记录', value: '拆换记录' },
+	{ label: '用户信息变更记录', value: '用户信息变更记录' },
+]

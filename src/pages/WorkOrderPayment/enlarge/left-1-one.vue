@@ -1,5 +1,5 @@
 <template lang="pug">
-.enlarge-left-1-one.fn-flex
+.fn-flex
 	gc-tab3(label="区域列表", :options="areaOptions")
 	.fn-flex.flex-column(style="margin-left: 24px; flex: 1")
 		gc-tab1(:options="residentOptions", style="margin-left: auto", @init="init", @change="init")

@@ -1,5 +1,5 @@
 <template lang="pug">
-.enlarge-left-one.fn-flex.flex-column
+.fn-flex.flex-column
 	.fn-flex
 		gc-tab1(style="margin-left: auto", :options="meterOptions", @init="init", @change="init")
 		gc-date2(style="margin-left: 24px", @init="init", @change="init")
@@ -155,8 +155,3 @@ export default defineComponent({
 	},
 })
 </script>
-<style lang="scss" scoped>
-.enlarge-left-one {
-	width: 100%;
-}
-</style>

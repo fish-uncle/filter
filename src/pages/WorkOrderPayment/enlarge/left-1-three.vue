@@ -1,5 +1,5 @@
 <template lang="pug">
-.enlarge-left-one.fn-flex.flex-column
+.fn-flex.flex-column
 	gc-date1(style="margin-left: auto", @init="init", @change="init")
 	gc-table(:stripe="false", :columns="columns", v-model="list", :rowspan="rowspan", body-height="430px")
 </template>

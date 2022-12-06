@@ -17,10 +17,11 @@
 		h4.pos-a
 			label.pos-a {{ currentLabel }}
 			span.pos-a {{ currentRatio }}
-		img.pos-a(:src="icon[activeIndex % icon.length]")
 		ul.pos-a
 			p.pos-a(v-for="(item, index) in ringIconList", :key="index", :style="{ transform: `rotate(${7.2 * index}deg)` }")
 	.gc-pie-2-chart(ref="chartDom")
+	.gc-pie-2-img-box.pos-a
+		img.pos-a(:src="icon[activeIndex % icon.length]")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, watch, onMounted, ref, computed, PropType } from 'vue'
@@ -178,6 +179,20 @@ export default defineComponent({
 	align-items: center;
 	user-select: none;
 }
+.gc-pie-2-img-box {
+	height: 180px;
+	width: 180px;
+	margin-left: 51px;
+	z-index: 9;
+	img {
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 34px;
+		height: 34px;
+		margin-left: 178px;
+	}
+}
 .gc-pie-2-chart,
 .gc-pie-2-value {
 	height: 180px;
@@ -261,13 +276,6 @@ export default defineComponent({
 			width: 100px;
 			white-space: nowrap;
 		}
-	}
-	img {
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-		width: 34px;
-		height: 34px;
 	}
 	ul {
 		top: 50%;

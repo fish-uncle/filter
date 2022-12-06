@@ -124,18 +124,18 @@ export default defineComponent({
 		background-position: center;
 		margin-right: 22px;
 	}
-	&:nth-child(1) {
-		i {
-			background-image: url('../../../imgs/customer-service/right-one/icon1.png');
-		}
-	}
-	&:nth-child(2) {
-		i {
-			background-image: url('../../../imgs/customer-service/right-one/icon2.png');
-		}
-	}
 	li {
 		align-items: center;
+		&:nth-child(1) {
+			i {
+				background-image: url('../../../imgs/customer-service/right-one/icon1.png');
+			}
+		}
+		&:nth-child(2) {
+			i {
+				background-image: url('../../../imgs/customer-service/right-one/icon2.png');
+			}
+		}
 	}
 	label {
 		font-weight: 400;
