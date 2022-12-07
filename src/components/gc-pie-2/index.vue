@@ -180,21 +180,18 @@ export default defineComponent({
 	user-select: none;
 }
 .gc-pie-2-img-box {
-	height: 180px;
-	width: 180px;
-	margin-left: 51px;
 	z-index: 9;
+	left: 178px;
 	img {
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
 		width: 34px;
 		height: 34px;
-		margin-left: 178px;
 	}
 }
 .gc-pie-2-chart,
-.gc-pie-2-value {
+.gc-pie-2-value,.gc-pie-2-img-box {
 	height: 180px;
 	width: 180px;
 	margin-left: 51px;
