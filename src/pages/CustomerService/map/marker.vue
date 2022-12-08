@@ -1,7 +1,7 @@
 <template lang="pug">
 gc-marker-container(v-for="(item, index) in list", :key="index", v-bind="item")
-	.custom-service-map-marker-1.fn-flex.flex-column(:class="{ active: show[index] }")
-		.custom-service-map-marker-1-top
+	.custom-service-map-marker-1.fn-flex.flex-column.pos-r
+		.custom-service-map-marker-1-top(v-if="show[index]")
 			h2.fn-flex {{ item.label }}
 			.custom-service-map-marker-1-top-item.fn-flex
 				label 总客户：
@@ -12,8 +12,8 @@ gc-marker-container(v-for="(item, index) in list", :key="index", v-bind="item")
 			.custom-service-map-marker-1-top-item.fn-flex
 				label 营收金额
 				span {{ item.value3 }}万
-		p.pos-r
-		img.cursor-pointer(:src="icon", v-marker-click="handlerClick(index)")
+		p.pos-r(v-if="show[index]")
+		img.cursor-pointer.pos-a(:src="icon", v-marker-click="handlerClick(index)")
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted } from 'vue'
@@ -97,10 +97,6 @@ export default defineComponent({
 	width: 262px;
 	align-items: center;
 	justify-content: center;
-	pointer-events: none;
-	opacity: 0;
-	transition: all 0.3s;
-	transform: translateY(100%);
 
 	h2 {
 		background: rgba(0, 100, 156, 0.4);
@@ -115,13 +111,12 @@ export default defineComponent({
 	user-select: none;
 	align-items: center;
 	justify-content: center;
+	height: 300px;
+	padding-bottom: 60px;
 	p {
 		width: 2px;
 		height: 70px;
 		background: #ffffff;
-		opacity: 0;
-		transition: all 0.3s;
-		transform: translateY(100%);
 		&:before {
 			content: '';
 			position: absolute;
@@ -137,18 +132,9 @@ export default defineComponent({
 	img {
 		width: 60px;
 		height: 60px;
-	}
-	&.active {
-		p {
-			pointer-events: auto;
-			opacity: 1;
-			transform: translateY(0);
-		}
-		.custom-service-map-marker-1-top {
-			pointer-events: auto;
-			opacity: 1;
-			transform: translateY(0);
-		}
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 }
 </style>
