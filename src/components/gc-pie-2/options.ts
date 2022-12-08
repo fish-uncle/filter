@@ -51,8 +51,8 @@ export default (data, color) => {
 								color: {
 									type: 'linear',
 									colorStops: [
-										{ offset: 0, color: hexToRgba(color, 0.23) },
-										{ offset: 1, color: hexToRgba(color, 0.9) },
+										{ offset: 0, color: hexToRgba(color, 0.1) },
+										{ offset: 1, color: hexToRgba(color, 0.4) },
 									],
 								},
 							},

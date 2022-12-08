@@ -30,19 +30,19 @@ export const leftTwoApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '居民（灶具)',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 30,
 					label: '居民（灶热)',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 30,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 50,
 					label: '居民（采暖)',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 50,
 				},
 			],
 		})
@@ -141,24 +141,24 @@ export const leftFourApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '线上网厅',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '乡镇六合一',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '线下营业厅',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 50,
 					label: '浙里办',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 50,
 				},
 			],
 		})
@@ -172,39 +172,39 @@ export const leftFiveApi = (): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '政府机关',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '社会团体',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '体育',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '学校',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '宾馆',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '写字楼',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '政府机关',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 			],
 		})
@@ -303,24 +303,24 @@ export const rightTwoApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '短信查询',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '自助抄表',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '账单查询',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 50,
 					label: '生活缴费',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 50,
 				},
 			],
 		})
@@ -335,38 +335,38 @@ export const rightThreeApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '01月',
 				},
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '02月',
 				},
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '03月',
 				},
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '04月',
 				},
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '05月',
 				},
 				{
-					yValue1: Math.ceil(Math.random() * 20),
-					yValue2: Math.ceil(Math.random() * 20),
+					yValue1: Math.ceil(Math.random() * 100) + 50,
+					yValue2: Math.ceil(Math.random() * 50),
 					yValue3: Math.ceil(Math.random() * 100),
 					xValue: '06月',
 				},
@@ -398,39 +398,39 @@ export const rightFiveApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '政府机关',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '社会团体',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '体育',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '学校',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '宾馆',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '写字楼',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '政府机关',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 			],
 		})

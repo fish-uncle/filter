@@ -247,9 +247,8 @@ export default defineComponent({
 
 		p {
 			left: 50%;
-			width: 3px;
-			height: 6px;
-			margin-left: -1px;
+			width: 2px;
+			height: 4px;
 			background-color: rgba(255, 255, 255, 0.2);
 			transform-origin: 0 75px;
 		}

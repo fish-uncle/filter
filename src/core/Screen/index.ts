@@ -34,6 +34,8 @@ export default class Screen extends Factory<Screen> {
 			containerDom.style.overflow = 'auto'
 			contentDom.style.width = `${this.width}px`
 			contentDom.style.height = `${this.height}px`
+			contentDom.style.transform = 'translate3d(0, 0, 0)'
+			if (mapDom) mapDom.style.transform = 'translate3d(0, 0, 0)'
 			return false
 		}
 		if (layoutMode === 'full-width' || layoutMode === 'full-size' || layoutMode === 'full-height')

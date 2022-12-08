@@ -6,19 +6,19 @@ export const left1OneApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '普表',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 30,
 					label: 'IC卡表',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 30,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 50,
 					label: '智能表',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 50,
 				},
 			],
 		})
@@ -181,19 +181,19 @@ export const left1FiveApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '8年以内',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 30,
 					label: '8-10年',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 30,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 50,
 					label: '10年以上',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 50,
 				},
 			],
 		})
@@ -350,29 +350,29 @@ export const left2FourApi = (): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '软管上接三通',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '软管上接三通',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '软管上接三通',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 30,
 					label: '软管上接三通',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 30,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '软管上接三通',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 			],
 		})
@@ -553,29 +553,29 @@ export const rightFourApi = (type): Promise<any> => {
 		resolve({
 			list: [
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 10,
 					label: '网银',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 10,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '支付宝',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '微信',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 20,
 					label: '柜台',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 20,
 				},
 				{
-					value: Math.ceil(Math.random() * 20),
+					value: 30,
 					label: '网银',
-					ratio: Math.ceil(Math.random() * 100),
+					ratio: 30,
 				},
 			],
 		})
@@ -658,36 +658,36 @@ export const rightSixApi = (type): Promise<any> => {
 					id: '399011804',
 					address: '格林酒店',
 					type: 'down',
-					value: Math.ceil(Math.random() * 20),
-					ratio: Math.ceil(Math.random() * 100),
+					value: 10,
+					ratio: 10,
 				},
 				{
 					id: '399011804',
 					address: '格林酒店',
 					type: 'down',
-					value: Math.ceil(Math.random() * 20),
-					ratio: Math.ceil(Math.random() * 100),
+					value: 20,
+					ratio: 20,
 				},
 				{
 					id: '399011804',
 					address: '格林酒店',
 					type: 'down',
-					value: Math.ceil(Math.random() * 20),
-					ratio: Math.ceil(Math.random() * 100),
+					value: 20,
+					ratio: 20,
 				},
 				{
 					id: '399011804',
 					address: '格林酒店',
 					type: 'down',
-					value: Math.ceil(Math.random() * 20),
-					ratio: Math.ceil(Math.random() * 100),
+					value: 20,
+					ratio: 20,
 				},
 				{
 					id: '399011804',
 					address: '格林酒店',
 					type: 'down',
-					value: Math.ceil(Math.random() * 20),
-					ratio: Math.ceil(Math.random() * 100),
+					value: 30,
+					ratio: 30,
 				},
 			],
 		})
