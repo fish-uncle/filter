@@ -1,17 +1,17 @@
 <template lang="pug">
 .home-nav.pos-a.fn-flex(v-click-outside="hideMenu")
 	.home-nav-item.fn-flex(
-		v-for="(item, index) in nav.list",
-		:class="{ active: item.active.indexOf(nav.current) !== -1 }",
+		v-for="(item, index) in navList",
+		:class="{ active: item.active.indexOf(currentNav) !== -1 }",
 		:key="item.label"
 	)
 		.home-nav-item-title.cursor-pointer.pos-r.fn-flex(@click="changeNav(item)")
-			.home-nav-item-left(v-if="item.active.indexOf(nav.current) !== -1 && index !== 0", @click.stop="changePrev")
+			.home-nav-item-left(v-if="item.active.indexOf(currentNav) !== -1 && index !== 0", @click.stop="changePrev")
 			p.fn-flex.font-title 
 				i(v-if="item.children")
 				span {{ item.label }}
 			.home-nav-item-right(
-				v-if="item.active.indexOf(nav.current) !== -1 && index !== nav.list.length - 1",
+				v-if="item.active.indexOf(currentNav) !== -1 && index !== navList.length - 1",
 				@click.stop="changeNext"
 			)
 			template(v-if="item.children")
@@ -19,29 +19,31 @@
 					.home-nav-item-child.fn-flex(
 						v-for="child in item.children",
 						@click.stop="changeNav(child)",
-						:class="{ active: child.label === nav.current }",
+						:class="{ active: child.label === currentNav }",
 						:key="child.label"
 					) {{ child.label }}
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import Nav from '@/core/Nav'
+import { useCommonStore } from '@/store'
+import { storeToRefs } from 'pinia'
 import { ClickOutside } from '@/directives'
 
 export default defineComponent({
 	name: 'HomeNav',
 	directives: { ClickOutside },
 	setup() {
+		const commonStore = useCommonStore()
+		const { navList, currentNav } = storeToRefs(commonStore)
 		const state = reactive({
 			showMenu: {},
-			nav: Nav.Instance() as Nav,
 		})
 		const changeNav = (item): void => {
 			if (item.children) {
 				state.showMenu[item.label] = !state.showMenu[item.label]
 			} else {
 				hideMenu()
-				state.nav.changeNav(item.label)
+				commonStore.changeNav(item.label)
 			}
 		}
 		const hideMenu = () => {
@@ -49,14 +51,16 @@ export default defineComponent({
 		}
 		const changePrev = (): void => {
 			hideMenu()
-			state.nav.changePrevNav()
+			commonStore.changePrevNav()
 		}
 		const changeNext = (): void => {
 			hideMenu()
-			state.nav.changeNextNav()
+			commonStore.changeNextNav()
 		}
 		return {
 			...toRefs(state),
+			navList,
+			currentNav,
 			changeNav,
 			changePrev,
 			changeNext,
@@ -119,7 +123,7 @@ export default defineComponent({
 		height: 60px;
 		align-items: center;
 		justify-content: center;
-		color: #e0f7fd;
+		color: #E0F7FD;
 	}
 	i {
 		background-image: url('../../imgs/nav/menu.png');
@@ -135,10 +139,10 @@ export default defineComponent({
 	&.active {
 		width: 250px;
 		p {
-			color: #ffffff;
+			color: #FFFFFF;
 			transform: translate3d(0, 0, 0);
 			width: 198px;
-			border: 2px solid #3be8ff;
+			border: 2px solid #3BE8FF;
 			background: rgba(0, 18, 38, 0.8);
 			border-radius: 4px;
 		}
