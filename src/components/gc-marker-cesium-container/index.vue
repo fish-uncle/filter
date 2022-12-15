@@ -1,5 +1,5 @@
 <template lang="pug">
-.gc-marker-container(ref="markerRef")
+.gc-marker-cesium-container(ref="markerRef")
 	div(:style="{ transform: screen.style }")
 		slot
 </template>
@@ -13,7 +13,7 @@ interface PositionProps {
 	height?: number
 }
 export default defineComponent({
-	name: 'GcMarkerContainer',
+	name: 'GcMarkerCesiumContainer',
 	props: {
 		position: {
 			type: Object as PropType<PositionProps>,
@@ -55,11 +55,11 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.gc-marker-container {
+.gc-marker-cesium-container {
 	display: none;
 	position: absolute;
 }
-.gc-marker {
+.gc-cesium-marker {
 	position: absolute;
 	z-index: 99;
 }

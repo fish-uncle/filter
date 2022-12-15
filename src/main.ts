@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import Map from '@/core/Map'
+import Map from '@/core/MapBox'
 import { createPinia } from 'pinia'
 const store = createPinia()
 import './styles/index.scss'

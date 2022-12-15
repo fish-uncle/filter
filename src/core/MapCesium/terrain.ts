@@ -15,16 +15,13 @@ export default class MapTerrain extends Factory<MapTerrain> {
 	depthTestAgainstTerrain = true // 高层遮挡 即视角范围内的山体会遮挡建筑
 
 	// 地形 cesium 全球3D地形
-	terrainProviderWorldTerrain = window.Cesium.createWorldTerrain({
-		// requestVertexNormals: this.enableLighting,
-		requestWaterMask: this.enableWaterMask,
-	})
-
-	constructor() {
-		super()
-	}
+	terrainProviderWorldTerrain
 
 	init(viewer) {
+		this.terrainProviderWorldTerrain = window.Cesium.createWorldTerrain({
+			// requestVertexNormals: this.enableLighting,
+			requestWaterMask: this.enableWaterMask,
+		})
 		viewer.scene.globe.depthTestAgainstTerrain = this.depthTestAgainstTerrain
 		viewer.scene.globe.terrainExaggeration = this.terrainExaggeration
 		viewer.scene.fog.enabled = this.enableFog

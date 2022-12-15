@@ -4,7 +4,7 @@ import Factory from '@/core/Base/factory'
  * @description 配置信息
  */
 export default class MapConfig extends Factory<MapConfig> {
-	viewerClassName = 'cesiumContainer' // map className
+	viewerClassName = 'map-container' // map className
 
 	// cesium token
 	defaultAccessToken =

@@ -18,7 +18,7 @@ export default class Screen extends Factory<Screen> {
 		super()
 	}
 
-	init() {
+	init(map) {
 		let scaleX = 0,
 			scaleY = 1,
 			actualScaleRatio = 1,
@@ -66,6 +66,8 @@ export default class Screen extends Factory<Screen> {
 		} else {
 			this.styleReturn = `scale(${1 / actualScaleRatio}) translate3d(0, 0, 0)`
 		}
-		if (mapDom) mapDom.style.transform = this.styleReturn
+		if (mapDom) {
+			if (map.type === 'MapCesium') mapDom.style.transform = this.styleReturn
+		}
 	}
 }

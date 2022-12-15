@@ -1,6 +1,6 @@
 <template lang="pug">
 #map-box
-	#cesiumContainer
+	#map-container.pos-r
 </template>
 <script lang="ts">
 import { defineComponent, onMounted } from 'vue'
@@ -11,12 +11,8 @@ export default defineComponent({
 	setup() {
 		onMounted(() => {
 			const screen: Screen = Screen.Instance()
-			screen.init()
+			screen.init(window.map)
 			window.map.init()
-			new window.Cesium.ScreenSpaceEventHandler(window.map.viewer.scene.canvas).setInputAction(function (e) {
-				window.map.camera.clickPosition(window.map.viewer, e)
-				window.map.camera.currentPosition(window.map.viewer)
-			}, window.Cesium.ScreenSpaceEventType.LEFT_CLICK)
 		})
 	},
 })
@@ -26,7 +22,7 @@ export default defineComponent({
 	width: 100%;
 	height: 100%;
 }
-#cesiumContainer {
+#map-container {
 	width: 100%;
 	height: 100%;
 }

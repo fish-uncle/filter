@@ -1,10 +1,10 @@
 import Factory from '@/core/Base/factory'
-import MapConfig from '@/core/Map/config'
-import MapCamera from '@/core/Map/camera'
-import MapBuilding from '@/core/Map/building'
-import MapImagery from '@/core/Map/imagery'
-import MapTerrain from '@/core/Map/terrain'
-import MapMarker from '@/core/Map/marker'
+import MapConfig from '@/core/MapCesium/config'
+import MapCamera from '@/core/MapCesium/camera'
+import MapBuilding from '@/core/MapCesium/building'
+import MapImagery from '@/core/MapCesium/imagery'
+import MapTerrain from '@/core/MapCesium/terrain'
+import MapMarker from '@/core/MapCesium/marker'
 
 export default class Map extends Factory<Map> {
 	config: MapConfig = MapConfig.Instance()
@@ -13,6 +13,7 @@ export default class Map extends Factory<Map> {
 	building: MapBuilding = MapBuilding.Instance()
 	terrain: MapTerrain = MapTerrain.Instance()
 	marker
+	type = 'MapCesium'
 
 	viewer // cesium viewer实例
 
@@ -28,8 +29,18 @@ export default class Map extends Factory<Map> {
 		this.performance()
 	}
 
+	debugger(){
+		new window.Cesium.ScreenSpaceEventHandler(window.map.viewer.scene.canvas).setInputAction(function (e) {
+			// @ts-ignore
+			window.map.camera.clickPosition(window.map.viewer, e)
+			// @ts-ignore
+			window.map.camera.currentPosition(window.map.viewer)
+		}, window.Cesium.ScreenSpaceEventType.LEFT_CLICK)
+	}
+	
 	init() {
 		this.install()
+		this.debugger()
 		this.marker = MapMarker.Instance(this.viewer)
 		this.terrain.init(this.viewer)
 		// this.building.init(this.viewer)

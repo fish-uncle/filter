@@ -35,7 +35,8 @@ import GcEnlarge from '@/components/gc-enlarge/index.vue'
 import GcStep from '@/components/gc-step/index.vue'
 import GcTable from '@/components/gc-table/index.vue'
 
-import GcMarkerContainer from '@/components/gc-marker-container/index.vue'
+import GcMarkerCesiumContainer from '@/components/gc-marker-cesium-container/index.vue'
+import GcMarkerMapboxContainer from '@/components/gc-marker-mapbox-container/index.vue'
 
 export default [
 	GcTitle,
@@ -75,5 +76,6 @@ export default [
 	GcStep,
 	GcTable,
 
-	GcMarkerContainer,
+	GcMarkerCesiumContainer,
+	GcMarkerMapboxContainer,
 ]

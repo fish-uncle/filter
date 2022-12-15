@@ -1,8 +1,10 @@
-import Map from '@/core/Map'
+import MapCesium from '@/core/MapCesium'
+import MapBox from '@/core/MapBox'
 
 declare global {
 	interface Window {
-		map: Map
+		map: MapCesium | MapBox
+		mapboxgl: any
 		Cesium: any
 		echarts: any
 	}

@@ -1,5 +1,5 @@
 <template lang="pug">
-gc-marker-container(v-for="(item, index) in list", :key="index", v-bind="item")
+gc-marker-mapbox-container(v-for="(item, index) in list", :key="index", v-bind="item")
 	.custom-service-map-marker-1.fn-flex.flex-column.pos-r
 		.custom-service-map-marker-1-top(v-if="show[index]")
 			h2.fn-flex {{ item.label }}
@@ -46,8 +46,8 @@ export default defineComponent({
 						value2: 100,
 						value3: 100,
 						position: {
-							latitude: 30.837451184372505,
-							longitude: 120.83854854492326,
+							latitude: 30.84521190078773,
+							longitude: 120.92005076856685,
 						},
 					},
 					{
